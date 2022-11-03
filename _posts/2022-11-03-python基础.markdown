@@ -1,0 +1,285 @@
+---
+layout: post
+title:  "python 基础"
+date:   2022-11-03 18:20:46 +0800
+categories: jekyll update
+---
+
+[TOC]
+
+## 概述
+
+### Python 定义
+
+> `Python` 是一种解释型、动态、面向对象的编程语言
+
+#### 解释型
+
+`Python` 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 `PHP` 和 `Ruby`）
+
+一般编程都是用高级语言，但计算机只能理解机器语言，所以需要把高级语言翻译成机器语言。翻译的方式有两种，一种是**编译**，一种是**解释**。两种方式只是翻译的时间不同。编译型语言只需要要翻译一次，运行时不需要翻译。而解释型语言在运行的时候才翻译
+
+`C` 语言适合开发那些追求运行速度、充分发挥硬件性能的程序。而 `Python` 适合用来编写应用程序，`Python` 源码文件在被导入时完成编译。编译后的字节码被缓存复用，通常会被缓存到磁盘，`Python3` 使用专门目录保存字节码缓存文件
+
+#### 动态
+
+- 动态语言：在运行时确定数据类型的语言，使用变量之前不需要类型声明
+- 静态语言：在编译时即确定变量的数据类型，在使用变量之前必须声明类型
+
+`Python` 同时也是一门强类型语言，动态还是静态指的是编译期还是运行期确定类型，强类型指的是不会发生隐式类型转换。`JS` 和 `PHP` 是弱类型语言，如 `JS` 中可以运行 `1 + '1'` 不报错
+
+#### 面向对象
+
+**面向对象**是一种程序设计思想，把对象作为程序的基本单元，一个对象包含了数据、属性和操作数据的方法。面向对象有三个基本特征：**封装**、**继承**、**多态**
+
+### 优缺点
+
+**优点：**
+- 语法简洁优雅，易学
+- 开发效率高，常适合做快速的原型开发
+- 隐藏底层细节，比如内存管理
+- 丰富的 `API`，第三方库
+- 胶水语言，连接软件组件
+- 各个领域都有建树
+
+**缺点：**
+- 运行速度慢，无法和编译的语言比，但可以通过使用 `C/C++` 写 `Python` 扩展等方式优化
+- `GIL` 问题
+- `Python2/3` 兼容问题
+
+### 结构
+
+`Python` 语言以统一的方式支持面向对象的程序设计。程序里定义和操作的各种实体都是对象。一个对象可以具有一些行为能力，通过方法，可以执行这些行为，行为可以操作对象内部的状态
+
+1. `Python` 的基本程序单位是命令（语句），表达式是命令的组成部分，最基本的命令为赋值
+2. 为处理多个命令，提供了一套控制结构
+3. 随着程序的复杂，引入一种为函数的基本抽象机制
+4. 进而封装成类，模块，包
+
+
+## 表达式
+
+### 布尔值
+
+布尔运算是计算机进行流程控制的基础，在 `Python` 中，布尔值用 `True` 和 `False` 表示。常见的为 `False` 值: `None, '', (), [], {}, 0`
+
+> By default, an object is considered true unless its class defines either a __bool__() method that returns False or a __len__() method that returns zero, when called with the object.
+
+### 运算符
+
+#### 比较运算符
+
+常见比较运算符有  `-、+、*、+=、-=、*=、<、<=、>=、>、==、!=、^、|、&、in`。每个运算符其实都是对象的魔法方法，当同时存在多个比较运算符时，会依据优先级进行运算
+
+```python
+# 字符串与数值之间不能直接进行运算， 需要类型转换
+In : 6 + '4'
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+In : 6 + int('4')
+Out: 10
+
+# 使用 type() 函数可以用来查看是操作对象什么类型
+In : type(6), type('4')
+Out: (int, str)
+```
+
+- [Python运算符优先级](https://www.sojson.com/operation/python.html)
+
+#### 逻辑运算符
+
+逻辑运算符有三种，分别为 `or, and, not`，即或、与、非。三个逻辑运算符中，`not` 的优先级最高，但低于比较运算符，`or` 的优先级最低，`and` 位于两者之间。当逻辑运算符不止一个时，使用短路逻辑，逻辑运算一旦短路，立即终止计算
+
+- 从左至右，若 `or` 的左侧逻辑值为 True，则短路 `or` 后所有的表达式（不管是 `and` 还是 `or`）
+- 从左至右，若 `and` 的左侧逻辑值为 False，则短路其后所有 `and` 表达式，直到有 `or` 出现
+- 若 `or` 的左侧为 False，或者 `and` 的左侧为 True 则不能使用短路逻辑
+
+```python
+In : 3 and 5, [] and 6
+Out: (5, [])
+
+In : [] or 8, 3 or 5
+Out: (8, 3)
+
+In : 0 and 0 and 1 and 0 and 1
+Out: 0
+
+In : 1 or 0 or 1 or 0 or 1
+Out: 1
+
+In : 0 and 0 and 1 and 0 or 1 and 1 or 0 and 1
+Out: 1
+```
+
+- [python 中 and 和 or 运算的核心思想](https://www.cnblogs.com/an9wer/p/5475551.html)
+
+### 条件表达式
+
+```python
+[on true] if [expression] else [on false]
+
+In : 'T' if 2 > 1 else 'F'
+Out: 'T'
+```
+
+## 命令
+
+最基本的命令为赋值
+
+## 流程控制
+
+> 控制流指一系列按顺序执行的指令
+
+### 控制结构
+
+**简单控制结构：**
+
+- if...else：分支结构
+- for：循环结构
+- while：循环结构
+- break：打破循环
+- continue：结束当前循环
+- range：等差数列
+- pass：跳过
+
+**复杂控制结构：**
+
+- 可迭代对象、迭代器、生成器
+- 上下文管理器
+- 协程
+- asyncio
+
+
+### for 与 while
+
+- `for` 循环用于迭代固定数量的元素，按给定（正或负）增量进行迭代
+- `while` 执行逻辑循环，只要保持条件为真，就可以执行无限次迭代，使用 `While` 循环时，必须显式指定计数器以跟踪循环执行的次数
+
+与 `for` 相比，`while` 效率低，因为 `while` 在每次迭代后检查条件是否为 `True`，当然使用 `while` 可以编写更为灵活的表达式
+
+```python
+In : timeit('i = 0\nwhile i < 100: i += 1')
+Out: 5.91581211599987
+
+In : timeit('for i in range(100): pass')
+Out: 1.9179262340185232
+```
+
+
+## 内置类型
+
+### Python 的内置类型
+
+> The principal built-in types are numerics, sequences, mappings, classes, instances and exceptions
+
+`Python` 的内置类型被编译器和解释器特别对待，比如核心级别的指令和性能优化，专门设计的高效缓存等等
+
+内置类型可分为**数字**，**序列**，**映射**和**集合**几类。另根据其实例是否可被修改，又有**可变**（`mutable`)和**不可变**（`immutable`)的区分
+
+| 类型      | 举例                                              |
+| :------- | :------------------------------------------------ |
+| number   | int(N), float(N)                                  |
+| sequence | str(N), bytes(N), bytearray(Y), list(Y), tuple(N) |
+| mapping  | dict(Y)                                           |
+| set      | set(Y), frozenset(N)                              |
+
+内置函数 `issubclass` 检查一个类是否是另一个类的子类；标准库 `collections.abc` 列出了相关类型的抽象基类
+
+```python
+In : from collections import abc
+
+In : issubclass(str, abc.Sequence)
+Out: True
+
+In : issubclass(dict, (abc.Mapping, abc.MutableMapping))
+Out: True
+```
+
+### 可变与不可变对象
+
+> Python 中根据对象是否可被修改，可分为可变与不可变对象
+
+- **不可变对象**：该对象所指向内存中的值不能被改变。包括数字、字符串、元组
+- **可变对象**：在改变对象的值时，内存地址不会发生改变。包括列表、字典、集合
+
+```python
+In : a = 5
+
+In : id(a)
+Out: 4518805664
+
+In : a += 5    ## 不可变数据类型，赋值时开辟新对象，重新引用
+
+In : id(a)
+Out: 4518805824
+
+In : l = [1, 2, 3]
+
+In : id(l), id(l[0])
+Out: (4578866696, 4544630816)
+
+In : l[0] = 4
+
+In : id(l), id(l[0])
+Out: (4578866696, 4544630912)
+```
+
+### 其他数据结构
+
+Python标准库内置的collections模块提供了更多的选择。详见 [collections](:/d1573526caeb4e3e9f2b0c50c1441435)
+
+- namedtuple()：用于创建元组子类的工厂函数（factory function），可以通过属性名来访问它的元索引
+- deque：双端队列，类似列表，是栈和队列的一般化，可以在两端快速添加或取出元素
+- ChainMap：类似字典的类，用于创建多个映射的单一视图
+- Counter：字典子类，由于对可哈希对象进行计数
+- OrderedDict：字典子类，可以保存元素的添加顺序
+- defaultdict：字典子类，可以通过调用用户自定义的工厂函数来设置缺失值
+
+
+### 使用
+
+#### 序列索引
+
+`Python` 序列的索引采用从 0 开始即使用 `0-based` 的索引方式？
+
+- 半开区间切片和缺省匹配区间切片语法变得非常漂亮：`a[:n]` 和 `a[i:i+n]`
+- 当只有最后一个位置信息时，可以快速看出切片和区间里有几个元素：`range(3)` 和 `my_list[:3]` 都返回 3 个元素
+- 当起止位置信息都可见时，可以快速计算出切片和区间的长度，用后一个数减去第一个下标`（stop - start）` 即可
+- 半开区间两个切片操作位置邻接时，第一个切片操作的终点索引值是第二个切片的起点索引值。将数组以 i，j 两个点切成三部分为 `a[:i]`，`a[i:j]` 和 `a[j:]`
+
+文章 [“Why Numbering Should Start atZero”](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)解释了为什么 `ABCED[1:3]` 的结果应该是 BC  而不是 BCD，以及为什么 2，3，…，12 应该写作 `range(2, 13)`
+
+#### 序列解包
+
+对于任意序列类型（包括字符串和字节序列），只要赋值运算符左边的变量数目与序列中的元素数目相等，则都可以将元素序列解包到另一组变量中
+
+```python
+In : a, b, *c = 0, 1, 2, 3
+
+In : a, b, *c
+Out: (0, 1, 2, 3)
+
+In : a, b, *c = 0, 1, 2, 3
+
+In : a, b, c
+Out: (0, 1, [2, 3])
+
+In : a, *b, c = 0, 1, 2, 3
+
+In : a, b, c
+Out: (0, [1, 2], 3)
+
+In : (a, b), (c, d) = (1, 2), (3, 4)
+
+In : a, b, c, d
+Out: (1, 2, 3, 4)
+```
+
+
+## 相关阅读
+
+- [内置函数](https://docs.python.org/zh-cn/3/library/functions.html)
+- [内置类型](https://docs.python.org/3/library/stdtypes.html)
+- [表达式](https://docs.python.org/3/reference/expressions.html)
+- [collections.abc 官方文档](https://docs.python.org/3/library/collections.abc.html)
+- [More Control Flow Tools](https://docs.python.org/3/tutorial/controlflow.html)
