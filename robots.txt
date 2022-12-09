@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://blog.haoyu366.top/sitemap.xml
