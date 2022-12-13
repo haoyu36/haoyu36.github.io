@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>redis on haoyu blog</title>
+    <link>http://120.79.76.172:8381/tags/redis/</link>
+    <description>Recent content in redis on haoyu blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 01 Oct 2021 15:40:18 +0000</lastBuildDate><atom:link href="http://120.79.76.172:8381/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis基础</title>
+      <link>http://120.79.76.172:8381/post/redis%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/redis%E5%9F%BA%E7%A1%80/</guid>
+      <description>基础 [TOC]
+一：基础 1.1 概述 Redis 是一种速度非常快的键值（Key-Value）数据库，数据是存储在内存中的，并通过异步的方式将数据写入磁盘
+使用 Redis 只能通过键来查询值，读写效率非常高。键的类型只能为字符串，值支持五种数据类型：字符串、列表、散列表、集合、有序集合</description>
+    </item>
+    
+  </channel>
+</rss>

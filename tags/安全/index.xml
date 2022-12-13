@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>安全 on haoyu blog</title>
+    <link>http://120.79.76.172:8381/tags/%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in 安全 on haoyu blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 02 Oct 2021 15:40:00 +0000</lastBuildDate><atom:link href="http://120.79.76.172:8381/tags/%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安全</title>
+      <link>http://120.79.76.172:8381/post/%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Sat, 02 Oct 2021 15:40:00 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/%E5%AE%89%E5%85%A8/</guid>
+      <description>安全 [TOC]
+在安全领域，越简单的东西，安全风险越低；越复杂的东西，安全风险越高
+一：概述 其实对于安全来说，最大的风险是人的风险，即内部管理的风险 什么是零信任 有哪些攻击手段，如何避免 如何建立安全运维体系 1.1 零信任 所谓零信任，即是在一切（人、设备、网络、资源和环境等等）都不可信的前提下支持和保障业务的运行和发展，或者可以说，零信任产品和方案的目标不是保证可信，而是接纳、拥抱不可信</description>
+    </item>
+    
+    <item>
+      <title>安全运维体系</title>
+      <link>http://120.79.76.172:8381/post/%E5%AE%89%E5%85%A8%E8%BF%90%E7%BB%B4%E4%BD%93%E7%B3%BB/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/%E5%AE%89%E5%85%A8%E8%BF%90%E7%BB%B4%E4%BD%93%E7%B3%BB/</guid>
+      <description>安全运维体系 [TOC]
+一：概述 云端安全运维体系包括两个维度：身份访问控制、安全监控运营
+目标 保证用户对资源的合理访问 限制乃至阻止用户对资源的不合理访问（权限不足、非业务需要、操作不当等等） 保证资源不因用户行为而受到侵害 保证用户不因资源问题而受到侵害 职责分离 对运维权限分角色进行职责分离，防止权限滥用和审计失效 运维和审计职责分离， 由安全团队负责审计 数据库管理员和系统管理员职责分离 二：人员管理 2.</description>
+    </item>
+    
+    <item>
+      <title>攻击手段</title>
+      <link>http://120.79.76.172:8381/post/%E6%94%BB%E5%87%BB%E6%89%8B%E6%AE%B5/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/%E6%94%BB%E5%87%BB%E6%89%8B%E6%AE%B5/</guid>
+      <description>攻击手段 [TOC]
+一：概述 常见的安全漏洞包括密码漏洞、操作系统相关漏洞、中间件程序相关漏洞、开放端口相关漏洞、数据传送相关漏洞、局域网/广域网相关设备漏洞等
+二：系统攻击 针对操作系统 OS 级别的攻击，通过找到操作系统的漏洞来达到入侵的效果，木马和病毒是系统攻击最核心的两种手段
+病毒，以破坏为主，是计算机系统中的一种恶意程序 木马，以窃取目标的信息资源为主 三：应用攻击 即应用代码层的攻击</description>
+    </item>
+    
+  </channel>
+</rss>

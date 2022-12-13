@@ -2,30 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>python on haoyu blog</title>
-    <link>http://haoyu36.github.io/tags/python/</link>
+    <link>http://120.79.76.172:8381/tags/python/</link>
     <description>Recent content in python on haoyu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Oct 2021 07:40:18 +0000</lastBuildDate><atom:link href="http://haoyu36.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 15:00:55 +0000</lastBuildDate><atom:link href="http://120.79.76.172:8381/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python代码质量</title>
+      <link>http://120.79.76.172:8381/post/python%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/</link>
+      <pubDate>Wed, 26 Oct 2022 15:00:55 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/python%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/</guid>
+      <description>代码质量 [TOC]
+相关文档：
+编码质量 概述 Pythonic 就是充分利用 Python 语言特性，写出简洁优美的代码
+Python 之禅 import this 是 Python 的一个彩蛋，在交互式解释器中输入就会显示。Python 之禅体现了 Python 的设计哲学，对于编程有很强的指导意义</description>
+    </item>
+    
+    <item>
+      <title>python列表与元组</title>
+      <link>http://120.79.76.172:8381/post/python%E5%88%97%E8%A1%A8%E4%B8%8E%E5%85%83%E7%BB%84/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/python%E5%88%97%E8%A1%A8%E4%B8%8E%E5%85%83%E7%BB%84/</guid>
+      <description>列表与元祖 [TOC]
+列表是 Python 内置的一种数据类型，是一种有序的集合，包含 0 个或多个对象引用的有序序列，没有长度限制，可自由增删元素，使用灵活
+列表 概述 列表中不同的元素类型可以相同，也可以不同，还可以是其他数据结构。列表支持：索引，分片，加，乘，最大最小值，判定成员资格，计算长度，迭代等等</description>
+    </item>
+    
     <item>
       <title>python基础</title>
-      <link>http://haoyu36.github.io/post/python%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Fri, 01 Oct 2021 07:40:18 +0000</pubDate>
+      <link>http://120.79.76.172:8381/post/python%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
-      <guid>http://haoyu36.github.io/post/python%E5%9F%BA%E7%A1%80/</guid>
+      <guid>http://120.79.76.172:8381/post/python%E5%9F%BA%E7%A1%80/</guid>
       <description>基础 [TOC]
 概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言
 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby）</description>
     </item>
     
     <item>
-      <title>python面向对象</title>
-      <link>http://haoyu36.github.io/post/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
-      <pubDate>Fri, 01 Oct 2021 07:40:18 +0000</pubDate>
+      <title>python字典与集合</title>
+      <link>http://120.79.76.172:8381/post/python%E5%AD%97%E5%85%B8%E4%B8%8E%E9%9B%86%E5%90%88/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
-      <guid>http://haoyu36.github.io/post/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <guid>http://120.79.76.172:8381/post/python%E5%AD%97%E5%85%B8%E4%B8%8E%E9%9B%86%E5%90%88/</guid>
+      <description>字典与集合 [TOC]
+Python 基本是运行在字典上面的，module 是一个字典，global 是一个字典。优化了字典，就优化了 Python
+字典 概述 字典是内置类型中唯一的映射 (mapping) 结构，基于哈希表存储键值对数据。模块的命名空间，实例的属性和函数的关键字参数都使用到了字典，标准库中所有映射类型都是利用 dict 实现的</description>
+    </item>
+    
+    <item>
+      <title>python面向对象</title>
+      <link>http://120.79.76.172:8381/post/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
       <description>面向对象 本文主要说明面向对象在 python 中的实现，有关面向对象的知识详见 06-面向对象
 [TOC]
 面向对象 In python everything is an object.</description>
+    </item>
+    
+    <item>
+      <title>垃圾回收</title>
+      <link>http://120.79.76.172:8381/post/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>垃圾回收 Garbage Collection A way for a program to automatically release memory when the object taking up that space is no longer in use</description>
     </item>
     
   </channel>

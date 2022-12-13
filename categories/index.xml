@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on haoyu blog</title>
-    <link>http://haoyu36.github.io/categories/</link>
+    <link>http://120.79.76.172:8381/categories/</link>
     <description>Recent content in Categories on haoyu blog</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="http://haoyu36.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="http://120.79.76.172:8381/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>编程 on haoyu blog</title>
+    <link>http://120.79.76.172:8381/tags/%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in 编程 on haoyu blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 01 Oct 2021 15:40:18 +0000</lastBuildDate><atom:link href="http://120.79.76.172:8381/tags/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>编码</title>
+      <link>http://120.79.76.172:8381/post/%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>http://120.79.76.172:8381/post/%E7%BC%96%E7%A0%81/</guid>
+      <description>编码 编码是根据某一字符编码规则，将人类可读的字符串翻译为计算机中存储的原始字节
+一：字符 计算机中的所有东西都是字节，磁盘上的文件是一系列字节，网络只传输字节，进入或退出任何程序的所有数据都是字节。计算机采用 8 个比特（bit）作为一个字节（byte），一个字节最多能表示 256 个字符
+字母、数字、标点符号、汉字，回车，退格等等都是字符(Character)，单个或多个字符合起来就是字符串。人类使用文本，即在计算机上能看到的字符。而计算机使用字节序列，即存储介质中存储二进制比特流
+字符与比特流之间的转换需要有一个统一的标准，否则就会出现乱码。不同字符集的标准不同，转换规则也不同。如使用 GBK 字符编码时，一个汉字占 2 个字节，使用 UTF-8 字符编码时，一个汉字占 3 个字节</description>
+    </item>
+    
+  </channel>
+</rss>
