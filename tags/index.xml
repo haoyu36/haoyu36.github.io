@@ -1,71 +1,72 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on haoyu blog</title>
-    <link>http://120.79.76.172:8381/tags/</link>
+    <link>https://haoyu36.github.io/tags/</link>
     <description>Recent content in Tags on haoyu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 26 Oct 2022 15:00:55 +0000</lastBuildDate><atom:link href="http://120.79.76.172:8381/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 26 Oct 2022 15:00:55 +0000</lastBuildDate><atom:link href="https://haoyu36.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>python</title>
-      <link>http://120.79.76.172:8381/tags/python/</link>
+      <link>https://haoyu36.github.io/tags/python/</link>
       <pubDate>Wed, 26 Oct 2022 15:00:55 +0000</pubDate>
       
-      <guid>http://120.79.76.172:8381/tags/python/</guid>
+      <guid>https://haoyu36.github.io/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>安全</title>
-      <link>http://120.79.76.172:8381/tags/%E5%AE%89%E5%85%A8/</link>
+      <link>https://haoyu36.github.io/tags/%E5%AE%89%E5%85%A8/</link>
       <pubDate>Sat, 02 Oct 2021 15:40:00 +0000</pubDate>
       
-      <guid>http://120.79.76.172:8381/tags/%E5%AE%89%E5%85%A8/</guid>
+      <guid>https://haoyu36.github.io/tags/%E5%AE%89%E5%85%A8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mysql</title>
-      <link>http://120.79.76.172:8381/tags/mysql/</link>
+      <link>https://haoyu36.github.io/tags/mysql/</link>
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
-      <guid>http://120.79.76.172:8381/tags/mysql/</guid>
+      <guid>https://haoyu36.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>redis</title>
-      <link>http://120.79.76.172:8381/tags/redis/</link>
+      <link>https://haoyu36.github.io/tags/redis/</link>
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
-      <guid>http://120.79.76.172:8381/tags/redis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>加密</title>
-      <link>http://120.79.76.172:8381/tags/%E5%8A%A0%E5%AF%86/</link>
-      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
-      
-      <guid>http://120.79.76.172:8381/tags/%E5%8A%A0%E5%AF%86/</guid>
+      <guid>https://haoyu36.github.io/tags/redis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>编程</title>
-      <link>http://120.79.76.172:8381/tags/%E7%BC%96%E7%A8%8B/</link>
+      <link>https://haoyu36.github.io/tags/%E7%BC%96%E7%A8%8B/</link>
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
-      <guid>http://120.79.76.172:8381/tags/%E7%BC%96%E7%A8%8B/</guid>
+      <guid>https://haoyu36.github.io/tags/%E7%BC%96%E7%A8%8B/</guid>
       <description></description>
     </item>
     
     <item>
       <title>计算机网络</title>
-      <link>http://120.79.76.172:8381/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <link>https://haoyu36.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
-      <guid>http://120.79.76.172:8381/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <guid>https://haoyu36.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>加密</title>
+      <link>https://haoyu36.github.io/tags/%E5%8A%A0%E5%AF%86/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>https://haoyu36.github.io/tags/%E5%8A%A0%E5%AF%86/</guid>
       <description></description>
     </item>
     

@@ -1,14 +1,448 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>网络层次 | haoyu blog</title><meta name=keywords content="计算机网络"><meta name=description content="分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决
-网络层次 [TOC]
-为了解决 (兼容)不同设备之间的通信问题，需要一套通用的网络协议
-一：分层 1.1 网络为什么分层 分层是为了解决复杂性，如果把所有的步骤都放到一个层次，那么这一层就会变得非常复杂，耦合度非常高，不容易理解"><meta name=author content><link rel=canonical href=http://120.79.76.172:8381/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/><link crossorigin=anonymous href=/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="网络层次"><meta property="og:description" content="分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决
-网络层次 [TOC]
-为了解决 (兼容)不同设备之间的通信问题，需要一套通用的网络协议
-一：分层 1.1 网络为什么分层 分层是为了解决复杂性，如果把所有的步骤都放到一个层次，那么这一层就会变得非常复杂，耦合度非常高，不容易理解"><meta property="og:type" content="article"><meta property="og:url" content="http://120.79.76.172:8381/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-10-01T15:40:18+00:00"><meta property="article:modified_time" content="2021-10-01T15:40:18+00:00"><meta property="og:site_name" content="haoyu blog"><meta name=twitter:card content="summary"><meta name=twitter:title content="网络层次"><meta name=twitter:description content="分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决
-网络层次 [TOC]
-为了解决 (兼容)不同设备之间的通信问题，需要一套通用的网络协议
-一：分层 1.1 网络为什么分层 分层是为了解决复杂性，如果把所有的步骤都放到一个层次，那么这一层就会变得非常复杂，耦合度非常高，不容易理解"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"http://120.79.76.172:8381/post/"},{"@type":"ListItem","position":3,"name":"网络层次","item":"http://120.79.76.172:8381/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"网络层次","name":"网络层次","description":"分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决\n网络层次 [TOC]\n为了解决 (兼容)不同设备之间的通信问题，需要一套通用的网络协议\n一：分层 1.1 网络为什么分层 分层是为了解决复杂性，如果把所有的步骤都放到一个层次，那么这一层就会变得非常复杂，耦合度非常高，不容易理解","keywords":["计算机网络"],"articleBody":" 分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决\n网络层次 [TOC]\n为了解决 (兼容)不同设备之间的通信问题，需要一套通用的网络协议\n一：分层 1.1 网络为什么分层 分层是为了解决复杂性，如果把所有的步骤都放到一个层次，那么这一层就会变得非常复杂，耦合度非常高，不容易理解\n分层有很多好处：\n独立：各层之间相互独立，高层是不需知道底层是如何实现的，只需要通过接口调用即可 实现：各层可以采用最适当的技术来实现，改变实现方式只需保持接口不变，方便协议维护与方便升级 在网络协议的分层中，不仅仅会根据功能划分层次，还会考虑层与层之间的封装与传递。在向下的过程中需要添加下层协议所需要的首部或者尾部，而在向上的过程中不断拆开首部和尾部\n1.2 其他分层结构 软件架构的分层：\n用户界面层 业务逻辑层 数据访问层 mysql的分层：\nserver 层 引擎层 硬件的分层：\n半导体物理学 晶体管开关，是建立在半导体物理学上的模型 逻辑门，是建立在开关上的模型 CPU，是建立在逻辑门上的模型 语言的分层：\n机器语言 汇编语言 编程语言 二：分层模型 哪几层 模型异同比较 计算机网络的分层模型有 OSI 的七层模型和 TCP/IP 的四层模型，现在实际使用的是综合的五层模型。他们的异同\n相同点：\n都采用了层次结构 都能够提供面向连接和无连接两种通信服务机制 不同点：\nOSI 七层模型； TCP/IP 是四层结构 TCP/IP 将数据链路层和物理层合并为网络接口层 OSI 七层模型是理论模型，一般用于理论研究，其分层有些冗余； TCP/IP更实用一些 为什么 TCP/IP 去除了表示层和会话层 表示层 (抽象传递信息的语法与语义)，会话层( 建立及管理会话,如验证用户登录)\n由于会话层、表示层、应用层都是在应用程序内部实现的，最终产出的是一个应用数据包，而应用程序之间是几乎无法实现代码的抽象共享的，这也就造成 OSI 设想中的应用程序维度的分层是无法实现的，例如，我们几乎不会认为数据的压缩、加密算法算是一种协议，而会话的概念则更为抽象，难以用协议来进行描述，所以在后来的 TCP/IP 协议框架的设计中，便将表示层和会话层与应用层整合在一起\n每层任务及数据单位、服务对象 层次 任务 数据单位 服务对象 应用层 为用户提供数据传输服务，各种应用程序协议，如 HTTP、DNS 报文 应用程序 传输层 接收来自应用层的数据，必要时切割成较小的数据单元，然后把数据单元传递给网络层 报文段(TCP)或用户数据报(UDP) 进程 网络层 通过路由选择算法，为分组选择最适合的传输路径 分组 主机 数据链路层 通过各种控制协议，将有差错的物理信道变为无差错的、能可靠传输数据帧的数据链路 帧 同一链路上的主机 物理层 在传输媒介(电话线或光纤电缆)上传输数据比特流 比特流 应用层： 应用软件都是在应用层实现的，专注于为用户提供应用功能而不用关心数据是如何传输的。应用层是工作在操作系统中的用户态，传输层及以下则工作在内核态 传输层：为应用层提供网络支持 数据如何在各层之间传输 三：常见协议及端口 协议：控制两个对等实体进行通信的规则的集合。TCP/IP 是一个实现 Internet 体系结构的协议族 端口：端口号是 16 位非负整数 (0～65535) 举例：\n应用层 HTTP：超文本传输协议，port：80 HTTPS：超文本传输安全协议，port：443 DNS：域名系统，port：53 RPC：远程调用协议 SMTP：简单邮件传输协议，port：25 FTP： 文件传输协议，port：20/21 SSH：安全外壳协议，port：22 DHCP：动态主机配置协议 LDAP：轻量级目录访问协议，port：389 传输层 UDP：用户数据报协议 TCP：传输控制协议 网络层 ICMP：Internet 控制报文协议 OSPF：开放式最短路径优先 链路层 ARP：地址解析协议 STP：生成树协议 四：网络设备 网络包从客户端计算机发出之后，一般要经过集线器、交换机和路由器最终进入互联网。家用路由器已经集成了集线器和交换机的功能\n设备 功能 缺点 层次 集线器 连接计算机等网络终端，将数据包传输到下一个转发设备 会将数据广播到所有电脑，当连接的电脑较多时会导致严重的安全性和可靠性问题 物理层 交换机 连接同一个网络下不同的主机设备，通过交换学习记录每个电脑的 mac 地址生成转发表(有过期时间)，所以不会发生碰撞 多台交换机连接形成的拓扑结构容易出现环路问题，这时数据包会不停的转发，占满带宽。使用 STP 协议可以将有环路的图变成没有环路的树 链路层 路由器 连接两个或多个局域网，当一个网络包送到路由器时，会根据路由表来决定如何转发 网络层 路由器的分组转发流程:\n从 IP 数据包中提取出目的主机的 IP 地址，找到其所在的网络 判断目的 IP 地址所在的网络是否与本路由器直接相连，如果是，则不需要经过其它路由器直接交付，否则执行 ③ 检查路由表中是否有目的 IP 地址的特定主机路由。如果有，则按照路由表传送到下一跳路由器中，否则执行 ④ 逐条检查路由表，使用每一行的子网掩码与目的IP匹配。若找到匹配路由，则按照路由表转发到下一跳路由器中，否则执行步骤 ⑤ 若路由表中设置有默认路由，则按照默认路由转发到默认路由器中，否则执行步骤 ⑥ 无法找到合适路由，向源主机报错。 五：架构图 ","wordCount":"165","inLanguage":"en","datePublished":"2021-10-01T15:40:18Z","dateModified":"2021-10-01T15:40:18Z","mainEntityOfPage":{"@type":"WebPage","@id":"http://120.79.76.172:8381/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/"},"publisher":{"@type":"Organization","name":"haoyu blog","logo":{"@type":"ImageObject","url":"http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://120.79.76.172:8381 accesskey=h title="haoyu blog (Alt + H)"><img src=http://120.79.76.172:8381/apple-touch-icon.png alt aria-label=logo height=35>haoyu blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=http://120.79.76.172:8381/archives/ title=时间轴><span>时间轴</span></a></li><li><a href=http://120.79.76.172:8381/tags/ title=标签><span>标签</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=http://120.79.76.172:8381>Home</a>&nbsp;»&nbsp;<a href=http://120.79.76.172:8381/post/>Posts</a></div><h1 class=post-title>网络层次</h1><div class=post-meta><span title='2021-10-01 15:40:18 +0000 UTC'>October 1, 2021</span>&nbsp;·&nbsp;165 words</div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#一分层>一：分层</a><ul><li><a href=#11-网络为什么分层>1.1 网络为什么分层</a></li><li><a href=#12-其他分层结构>1.2 其他分层结构</a></li></ul></li><li><a href=#二分层模型>二：分层模型</a><ul><li><a href=#哪几层>哪几层</a></li><li><a href=#模型异同比较>模型异同比较</a></li><li><a href=#为什么-tcpip-去除了表示层和会话层>为什么 TCP/IP 去除了表示层和会话层</a></li><li><a href=#每层任务及数据单位服务对象>每层任务及数据单位、服务对象</a></li><li><a href=#数据如何在各层之间传输>数据如何在各层之间传输</a></li></ul></li><li><a href=#三常见协议及端口>三：常见协议及端口</a></li><li><a href=#四网络设备>四：网络设备</a></li><li><a href=#五架构图>五：架构图</a></li></ul></nav></div></details></div><div class=post-content><blockquote><p>分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决</p></blockquote><h1 id=网络层次>网络层次<a hidden class=anchor aria-hidden=true href=#网络层次>#</a></h1><p>[TOC]</p><blockquote><p>为了解决 (兼容)不同设备之间的通信问题，需要一套通用的网络协议</p></blockquote><h2 id=一分层>一：分层<a hidden class=anchor aria-hidden=true href=#一分层>#</a></h2><h3 id=11-网络为什么分层>1.1 网络为什么分层<a hidden class=anchor aria-hidden=true href=#11-网络为什么分层>#</a></h3><p><strong>分层是为了解决复杂性</strong>，如果把所有的步骤都放到一个层次，那么这一层就会变得非常复杂，耦合度非常高，不容易理解</p><p>分层有很多好处：</p><ul><li><strong>独立</strong>：各层之间相互独立，高层是不需知道底层是如何实现的，只需要通过接口调用即可</li><li><strong>实现</strong>：各层可以采用最适当的技术来实现，改变实现方式只需保持接口不变，方便协议维护与方便升级</li></ul><p>在网络协议的分层中，不仅仅会根据功能划分层次，还会考虑层与层之间的封装与传递。在向下的过程中需要添加下层协议所需要的首部或者尾部，而在向上的过程中不断拆开首部和尾部</p><h3 id=12-其他分层结构>1.2 其他分层结构<a hidden class=anchor aria-hidden=true href=#12-其他分层结构>#</a></h3><p><strong>软件架构的分层：</strong></p><ul><li>用户界面层</li><li>业务逻辑层</li><li>数据访问层</li></ul><p><strong>mysql的分层：</strong></p><ul><li>server 层</li><li>引擎层</li></ul><p><strong>硬件的分层：</strong></p><ul><li>半导体物理学</li><li>晶体管开关，是建立在半导体物理学上的模型</li><li>逻辑门，是建立在开关上的模型</li><li>CPU，是建立在逻辑门上的模型</li></ul><p><strong>语言的分层：</strong></p><ul><li>机器语言</li><li>汇编语言</li><li>编程语言</li></ul><h2 id=二分层模型>二：分层模型<a hidden class=anchor aria-hidden=true href=#二分层模型>#</a></h2><h3 id=哪几层>哪几层<a hidden class=anchor aria-hidden=true href=#哪几层>#</a></h3><p><img loading=lazy src=/img/5d358799aed836de23e94c4bb41d3db7.png alt=5d358799aed836de23e94c4bb41d3db7.png></p><h3 id=模型异同比较>模型异同比较<a hidden class=anchor aria-hidden=true href=#模型异同比较>#</a></h3><p>计算机网络的分层模型有 OSI 的七层模型和 TCP/IP 的四层模型，现在实际使用的是综合的五层模型。他们的异同</p><p>相同点：</p><ul><li>都采用了层次结构</li><li>都能够提供面向连接和无连接两种通信服务机制</li></ul><p>不同点：</p><ul><li>OSI 七层模型； TCP/IP 是四层结构</li><li>TCP/IP 将数据链路层和物理层合并为网络接口层</li><li>OSI 七层模型是理论模型，一般用于理论研究，其分层有些冗余； TCP/IP更实用一些</li></ul><h3 id=为什么-tcpip-去除了表示层和会话层>为什么 TCP/IP 去除了表示层和会话层<a hidden class=anchor aria-hidden=true href=#为什么-tcpip-去除了表示层和会话层>#</a></h3><p>表示层 (抽象传递信息的语法与语义)，会话层( 建立及管理会话,如验证用户登录)</p><p>由于会话层、表示层、应用层都是在应用程序内部实现的，最终产出的是一个应用数据包，而应用程序之间是几乎无法实现代码的抽象共享的，这也就造成 OSI 设想中的应用程序维度的分层是无法实现的，例如，我们几乎不会认为数据的压缩、加密算法算是一种协议，而会话的概念则更为抽象，难以用协议来进行描述，所以在后来的 TCP/IP 协议框架的设计中，便将表示层和会话层与应用层整合在一起</p><h3 id=每层任务及数据单位服务对象>每层任务及数据单位、服务对象<a hidden class=anchor aria-hidden=true href=#每层任务及数据单位服务对象>#</a></h3><table><thead><tr><th style=text-align:center>层次</th><th style=text-align:center>任务</th><th style=text-align:center>数据单位</th><th style=text-align:center>服务对象</th></tr></thead><tbody><tr><td style=text-align:center>应用层</td><td style=text-align:center>为用户提供数据传输服务，各种应用程序协议，如 HTTP、DNS</td><td style=text-align:center>报文</td><td style=text-align:center>应用程序</td></tr><tr><td style=text-align:center>传输层</td><td style=text-align:center>接收来自应用层的数据，必要时切割成较小的数据单元，然后把数据单元传递给网络层</td><td style=text-align:center>报文段(TCP)或用户数据报(UDP)</td><td style=text-align:center>进程</td></tr><tr><td style=text-align:center>网络层</td><td style=text-align:center>通过路由选择算法，为分组选择最适合的传输路径</td><td style=text-align:center>分组</td><td style=text-align:center>主机</td></tr><tr><td style=text-align:center>数据链路层</td><td style=text-align:center>通过各种控制协议，将有差错的物理信道变为无差错的、能可靠传输数据帧的数据链路</td><td style=text-align:center>帧</td><td style=text-align:center>同一链路上的主机</td></tr><tr><td style=text-align:center>物理层</td><td style=text-align:center>在传输媒介(电话线或光纤电缆)上传输数据比特流</td><td style=text-align:center>比特流</td><td style=text-align:center></td></tr></tbody></table><ul><li>应用层： 应用软件都是在应用层实现的，专注于为用户提供应用功能而不用关心数据是如何传输的。应用层是工作在操作系统中的用户态，传输层及以下则工作在内核态</li><li>传输层：为应用层提供网络支持</li></ul><h3 id=数据如何在各层之间传输>数据如何在各层之间传输<a hidden class=anchor aria-hidden=true href=#数据如何在各层之间传输>#</a></h3><p><img loading=lazy src=/img/%e5%b0%81%e8%a3%85.webp alt=封装.webp></p><h2 id=三常见协议及端口>三：常见协议及端口<a hidden class=anchor aria-hidden=true href=#三常见协议及端口>#</a></h2><ul><li>协议：控制两个对等实体进行通信的规则的集合。TCP/IP 是一个实现 Internet 体系结构的协议族</li><li>端口：端口号是 16 位非负整数 (0～65535)</li></ul><p>举例：</p><ul><li>应用层<ul><li>HTTP：超文本传输协议，port：80</li><li>HTTPS：超文本传输安全协议，port：443</li><li>DNS：域名系统，port：53</li><li>RPC：远程调用协议</li><li>SMTP：简单邮件传输协议，port：25</li><li>FTP： 文件传输协议，port：20/21</li><li>SSH：安全外壳协议，port：22</li><li>DHCP：动态主机配置协议</li><li>LDAP：轻量级目录访问协议，port：389</li></ul></li><li>传输层<ul><li>UDP：用户数据报协议</li><li>TCP：传输控制协议</li></ul></li><li>网络层<ul><li>ICMP：Internet 控制报文协议</li><li>OSPF：开放式最短路径优先</li></ul></li><li>链路层<ul><li>ARP：地址解析协议</li><li>STP：生成树协议</li></ul></li></ul><h2 id=四网络设备>四：网络设备<a hidden class=anchor aria-hidden=true href=#四网络设备>#</a></h2><p>网络包从客户端计算机发出之后，一般要经过集线器、交换机和路由器最终进入互联网。家用路由器已经集成了集线器和交换机的功能</p><table><thead><tr><th style=text-align:center>设备</th><th style=text-align:center>功能</th><th style=text-align:center>缺点</th><th style=text-align:center>层次</th></tr></thead><tbody><tr><td style=text-align:center>集线器</td><td style=text-align:center>连接计算机等网络终端，将数据包传输到下一个转发设备</td><td style=text-align:center>会将数据广播到所有电脑，当连接的电脑较多时会导致严重的安全性和可靠性问题</td><td style=text-align:center>物理层</td></tr><tr><td style=text-align:center>交换机</td><td style=text-align:center>连接同一个网络下不同的主机设备，通过交换学习记录每个电脑的 mac 地址生成转发表(有过期时间)，所以不会发生碰撞</td><td style=text-align:center>多台交换机连接形成的拓扑结构容易出现环路问题，这时数据包会不停的转发，占满带宽。使用 STP 协议可以将有环路的图变成没有环路的树</td><td style=text-align:center>链路层</td></tr><tr><td style=text-align:center>路由器</td><td style=text-align:center>连接两个或多个局域网，当一个网络包送到路由器时，会根据路由表来决定如何转发</td><td style=text-align:center></td><td style=text-align:center>网络层</td></tr></tbody></table><p><strong>路由器的分组转发流程</strong>:</p><ol><li>从 IP 数据包中提取出目的主机的 IP 地址，找到其所在的网络</li><li>判断目的 IP 地址所在的网络是否与本路由器直接相连，如果是，则不需要经过其它路由器直接交付，否则执行 ③</li><li>检查路由表中是否有目的 IP 地址的特定主机路由。如果有，则按照路由表传送到下一跳路由器中，否则执行 ④</li><li>逐条检查路由表，使用每一行的子网掩码与目的IP匹配。若找到匹配路由，则按照路由表转发到下一跳路由器中，否则执行步骤 ⑤</li><li>若路由表中设置有默认路由，则按照默认路由转发到默认路由器中，否则执行步骤 ⑥</li><li>无法找到合适路由，向源主机报错。</li></ol><h2 id=五架构图>五：架构图<a hidden class=anchor aria-hidden=true href=#五架构图>#</a></h2><p><img loading=lazy src=/img/d024a4b387ad94d648650fdaa3a2b3c4.png alt=d024a4b387ad94d648650fdaa3a2b3c4.png></p></div><footer class=post-footer><ul class=post-tags><li><a href=http://120.79.76.172:8381/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/>计算机网络</a></li></ul><nav class=paginav><a class=prev href=http://120.79.76.172:8381/post/%E7%BC%96%E7%A0%81/><span class=title>« Prev</span><br><span>编码</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2022 <a href=http://120.79.76.172:8381>haoyu blog</a></span>
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>网络层次 - haoyu blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="haoyu" /><meta name="description" content="分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决 网络层次 [TOC] 为了解决 (兼容)不同设备之间的通信问题，需" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.104.3 with theme even" />
+
+
+<link rel="canonical" href="https://haoyu36.github.io/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="网络层次" />
+<meta property="og:description" content="分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决 网络层次 [TOC] 为了解决 (兼容)不同设备之间的通信问题，需" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://haoyu36.github.io/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-01T15:40:18+00:00" />
+<meta property="article:modified_time" content="2021-10-01T15:40:18+00:00" />
+
+<meta itemprop="name" content="网络层次">
+<meta itemprop="description" content="分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决 网络层次 [TOC] 为了解决 (兼容)不同设备之间的通信问题，需"><meta itemprop="datePublished" content="2021-10-01T15:40:18+00:00" />
+<meta itemprop="dateModified" content="2021-10-01T15:40:18+00:00" />
+<meta itemprop="wordCount" content="2052">
+<meta itemprop="keywords" content="计算机网络," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="网络层次"/>
+<meta name="twitter:description" content="分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决 网络层次 [TOC] 为了解决 (兼容)不同设备之间的通信问题，需"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">haoyu</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">haoyu</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">网络层次</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-10-01 </span>
+        
+          <span class="more-meta"> 约 2052 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网络层次">网络层次</a>
+      <ul>
+        <li><a href="#一分层">一：分层</a>
+          <ul>
+            <li><a href="#11-网络为什么分层">1.1 网络为什么分层</a></li>
+            <li><a href="#12-其他分层结构">1.2 其他分层结构</a></li>
+          </ul>
+        </li>
+        <li><a href="#二分层模型">二：分层模型</a>
+          <ul>
+            <li><a href="#哪几层">哪几层</a></li>
+            <li><a href="#模型异同比较">模型异同比较</a></li>
+            <li><a href="#为什么-tcpip-去除了表示层和会话层">为什么 TCP/IP 去除了表示层和会话层</a></li>
+            <li><a href="#每层任务及数据单位服务对象">每层任务及数据单位、服务对象</a></li>
+            <li><a href="#数据如何在各层之间传输">数据如何在各层之间传输</a></li>
+          </ul>
+        </li>
+        <li><a href="#三常见协议及端口">三：常见协议及端口</a></li>
+        <li><a href="#四网络设备">四：网络设备</a></li>
+        <li><a href="#五架构图">五：架构图</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决</p>
+</blockquote>
+<h1 id="网络层次">网络层次</h1>
+<p>[TOC]</p>
+<blockquote>
+<p>为了解决 (兼容)不同设备之间的通信问题，需要一套通用的网络协议</p>
+</blockquote>
+<h2 id="一分层">一：分层</h2>
+<h3 id="11-网络为什么分层">1.1 网络为什么分层</h3>
+<p><strong>分层是为了解决复杂性</strong>，如果把所有的步骤都放到一个层次，那么这一层就会变得非常复杂，耦合度非常高，不容易理解</p>
+<p>分层有很多好处：</p>
+<ul>
+<li><strong>独立</strong>：各层之间相互独立，高层是不需知道底层是如何实现的，只需要通过接口调用即可</li>
+<li><strong>实现</strong>：各层可以采用最适当的技术来实现，改变实现方式只需保持接口不变，方便协议维护与方便升级</li>
+</ul>
+<p>在网络协议的分层中，不仅仅会根据功能划分层次，还会考虑层与层之间的封装与传递。在向下的过程中需要添加下层协议所需要的首部或者尾部，而在向上的过程中不断拆开首部和尾部</p>
+<h3 id="12-其他分层结构">1.2 其他分层结构</h3>
+<p><strong>软件架构的分层：</strong></p>
+<ul>
+<li>用户界面层</li>
+<li>业务逻辑层</li>
+<li>数据访问层</li>
+</ul>
+<p><strong>mysql的分层：</strong></p>
+<ul>
+<li>server 层</li>
+<li>引擎层</li>
+</ul>
+<p><strong>硬件的分层：</strong></p>
+<ul>
+<li>半导体物理学</li>
+<li>晶体管开关，是建立在半导体物理学上的模型</li>
+<li>逻辑门，是建立在开关上的模型</li>
+<li>CPU，是建立在逻辑门上的模型</li>
+</ul>
+<p><strong>语言的分层：</strong></p>
+<ul>
+<li>机器语言</li>
+<li>汇编语言</li>
+<li>编程语言</li>
+</ul>
+<h2 id="二分层模型">二：分层模型</h2>
+<h3 id="哪几层">哪几层</h3>
+<p><img src="/img/5d358799aed836de23e94c4bb41d3db7.png" alt="5d358799aed836de23e94c4bb41d3db7.png"></p>
+<h3 id="模型异同比较">模型异同比较</h3>
+<p>计算机网络的分层模型有 OSI 的七层模型和 TCP/IP 的四层模型，现在实际使用的是综合的五层模型。他们的异同</p>
+<p>相同点：</p>
+<ul>
+<li>都采用了层次结构</li>
+<li>都能够提供面向连接和无连接两种通信服务机制</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>OSI 七层模型； TCP/IP 是四层结构</li>
+<li>TCP/IP  将数据链路层和物理层合并为网络接口层</li>
+<li>OSI 七层模型是理论模型，一般用于理论研究，其分层有些冗余； TCP/IP更实用一些</li>
+</ul>
+<h3 id="为什么-tcpip-去除了表示层和会话层">为什么 TCP/IP 去除了表示层和会话层</h3>
+<p>表示层 (抽象传递信息的语法与语义)，会话层( 建立及管理会话,如验证用户登录)</p>
+<p>由于会话层、表示层、应用层都是在应用程序内部实现的，最终产出的是一个应用数据包，而应用程序之间是几乎无法实现代码的抽象共享的，这也就造成 OSI 设想中的应用程序维度的分层是无法实现的，例如，我们几乎不会认为数据的压缩、加密算法算是一种协议，而会话的概念则更为抽象，难以用协议来进行描述，所以在后来的 TCP/IP 协议框架的设计中，便将表示层和会话层与应用层整合在一起</p>
+<h3 id="每层任务及数据单位服务对象">每层任务及数据单位、服务对象</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">层次</th>
+<th style="text-align:center">任务</th>
+<th style="text-align:center">数据单位</th>
+<th style="text-align:center">服务对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center">为用户提供数据传输服务，各种应用程序协议，如 HTTP、DNS</td>
+<td style="text-align:center">报文</td>
+<td style="text-align:center">应用程序</td>
+</tr>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">接收来自应用层的数据，必要时切割成较小的数据单元，然后把数据单元传递给网络层</td>
+<td style="text-align:center">报文段(TCP)或用户数据报(UDP)</td>
+<td style="text-align:center">进程</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">通过路由选择算法，为分组选择最适合的传输路径</td>
+<td style="text-align:center">分组</td>
+<td style="text-align:center">主机</td>
+</tr>
+<tr>
+<td style="text-align:center">数据链路层</td>
+<td style="text-align:center">通过各种控制协议，将有差错的物理信道变为无差错的、能可靠传输数据帧的数据链路</td>
+<td style="text-align:center">帧</td>
+<td style="text-align:center">同一链路上的主机</td>
+</tr>
+<tr>
+<td style="text-align:center">物理层</td>
+<td style="text-align:center">在传输媒介(电话线或光纤电缆)上传输数据比特流</td>
+<td style="text-align:center">比特流</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>应用层： 应用软件都是在应用层实现的，专注于为用户提供应用功能而不用关心数据是如何传输的。应用层是工作在操作系统中的用户态，传输层及以下则工作在内核态</li>
+<li>传输层：为应用层提供网络支持</li>
+</ul>
+<h3 id="数据如何在各层之间传输">数据如何在各层之间传输</h3>
+<p><img src="/img/%E5%B0%81%E8%A3%85.webp" alt="封装.webp"></p>
+<h2 id="三常见协议及端口">三：常见协议及端口</h2>
+<ul>
+<li>协议：控制两个对等实体进行通信的规则的集合。TCP/IP 是一个实现 Internet 体系结构的协议族</li>
+<li>端口：端口号是 16 位非负整数 (0～65535)</li>
+</ul>
+<p>举例：</p>
+<ul>
+<li>应用层
+<ul>
+<li>HTTP：超文本传输协议，port：80</li>
+<li>HTTPS：超文本传输安全协议，port：443</li>
+<li>DNS：域名系统，port：53</li>
+<li>RPC：远程调用协议</li>
+<li>SMTP：简单邮件传输协议，port：25</li>
+<li>FTP： 文件传输协议，port：20/21</li>
+<li>SSH：安全外壳协议，port：22</li>
+<li>DHCP：动态主机配置协议</li>
+<li>LDAP：轻量级目录访问协议，port：389</li>
+</ul>
+</li>
+<li>传输层
+<ul>
+<li>UDP：用户数据报协议</li>
+<li>TCP：传输控制协议</li>
+</ul>
+</li>
+<li>网络层
+<ul>
+<li>ICMP：Internet 控制报文协议</li>
+<li>OSPF：开放式最短路径优先</li>
+</ul>
+</li>
+<li>链路层
+<ul>
+<li>ARP：地址解析协议</li>
+<li>STP：生成树协议</li>
+</ul>
+</li>
+</ul>
+<h2 id="四网络设备">四：网络设备</h2>
+<p>网络包从客户端计算机发出之后，一般要经过集线器、交换机和路由器最终进入互联网。家用路由器已经集成了集线器和交换机的功能</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">设备</th>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">缺点</th>
+<th style="text-align:center">层次</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">集线器</td>
+<td style="text-align:center">连接计算机等网络终端，将数据包传输到下一个转发设备</td>
+<td style="text-align:center">会将数据广播到所有电脑，当连接的电脑较多时会导致严重的安全性和可靠性问题</td>
+<td style="text-align:center">物理层</td>
+</tr>
+<tr>
+<td style="text-align:center">交换机</td>
+<td style="text-align:center">连接同一个网络下不同的主机设备，通过交换学习记录每个电脑的 mac 地址生成转发表(有过期时间)，所以不会发生碰撞</td>
+<td style="text-align:center">多台交换机连接形成的拓扑结构容易出现环路问题，这时数据包会不停的转发，占满带宽。使用 STP 协议可以将有环路的图变成没有环路的树</td>
+<td style="text-align:center">链路层</td>
+</tr>
+<tr>
+<td style="text-align:center">路由器</td>
+<td style="text-align:center">连接两个或多个局域网，当一个网络包送到路由器时，会根据路由表来决定如何转发</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">网络层</td>
+</tr>
+</tbody>
+</table>
+<p><strong>路由器的分组转发流程</strong>:</p>
+<ol>
+<li>从 IP 数据包中提取出目的主机的 IP 地址，找到其所在的网络</li>
+<li>判断目的 IP 地址所在的网络是否与本路由器直接相连，如果是，则不需要经过其它路由器直接交付，否则执行 ③</li>
+<li>检查路由表中是否有目的 IP 地址的特定主机路由。如果有，则按照路由表传送到下一跳路由器中，否则执行 ④</li>
+<li>逐条检查路由表，使用每一行的子网掩码与目的IP匹配。若找到匹配路由，则按照路由表转发到下一跳路由器中，否则执行步骤 ⑤</li>
+<li>若路由表中设置有默认路由，则按照默认路由转发到默认路由器中，否则执行步骤 ⑥</li>
+<li>无法找到合适路由，向源主机报错。</li>
+</ol>
+<h2 id="五架构图">五：架构图</h2>
+<p><img src="/img/d024a4b387ad94d648650fdaa3a2b3c4.png" alt="d024a4b387ad94d648650fdaa3a2b3c4.png"></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">haoyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-10-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">垃圾回收</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://haoyu36.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>haoyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

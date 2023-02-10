@@ -1,168 +1,643 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>python基础 | haoyu blog</title><meta name=keywords content="python"><meta name=description content="基础 [TOC]
-概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言
-解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby）"><meta name=author content><link rel=canonical href=http://120.79.76.172:8381/post/python%E5%9F%BA%E7%A1%80/><link crossorigin=anonymous href=/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="python基础"><meta property="og:description" content="基础 [TOC]
-概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言
-解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby）"><meta property="og:type" content="article"><meta property="og:url" content="http://120.79.76.172:8381/post/python%E5%9F%BA%E7%A1%80/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-10-01T15:40:18+00:00"><meta property="article:modified_time" content="2021-10-01T15:40:18+00:00"><meta property="og:site_name" content="haoyu blog"><meta name=twitter:card content="summary"><meta name=twitter:title content="python基础"><meta name=twitter:description content="基础 [TOC]
-概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言
-解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby）"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"http://120.79.76.172:8381/post/"},{"@type":"ListItem","position":3,"name":"python基础","item":"http://120.79.76.172:8381/post/python%E5%9F%BA%E7%A1%80/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"python基础","name":"python基础","description":"基础 [TOC]\n概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言\n解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby）","keywords":["python"],"articleBody":"基础 [TOC]\n概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言\n解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby）\n一般编程都是用高级语言，但计算机只能理解机器语言，所以需要把高级语言翻译成机器语言。翻译的方式有两种，一种是编译，一种是解释。两种方式只是翻译的时间不同。编译型语言只需要要翻译一次，运行时不需要翻译。而解释型语言在运行的时候才翻译\nC 语言适合开发那些追求运行速度、充分发挥硬件性能的程序。而 Python 适合用来编写应用程序，Python 源码文件在被导入时完成编译。编译后的字节码被缓存复用，通常会被缓存到磁盘，Python3 使用专门目录保存字节码缓存文件\n动态 动态语言：在运行时确定数据类型的语言，使用变量之前不需要类型声明 静态语言：在编译时即确定变量的数据类型，在使用变量之前必须声明类型 Python 同时也是一门强类型语言，动态还是静态指的是编译期还是运行期确定类型，强类型指的是不会发生隐式类型转换。JS 和 PHP 是弱类型语言，如 JS 中可以运行 1 + '1' 不报错\n面向对象 面向对象是一种程序设计思想，把对象作为程序的基本单元，一个对象包含了数据、属性和操作数据的方法。面向对象有三个基本特征：封装、继承、多态\n优缺点 优点：\n语法简洁优雅，易学 开发效率高，常适合做快速的原型开发 隐藏底层细节，比如内存管理 丰富的 API，第三方库 胶水语言，连接软件组件 各个领域都有建树 缺点：\n运行速度慢，无法和编译的语言比，但可以通过使用 C/C++ 写 Python 扩展等方式优化 GIL 问题 Python2/3 兼容问题 结构 Python 语言以统一的方式支持面向对象的程序设计。程序里定义和操作的各种实体都是对象。一个对象可以具有一些行为能力，通过方法，可以执行这些行为，行为可以操作对象内部的状态\nPython 的基本程序单位是命令（语句），表达式是命令的组成部分，最基本的命令为赋值 为处理多个命令，提供了一套控制结构 随着程序的复杂，引入一种为函数的基本抽象机制 进而封装成类，模块，包 表达式 布尔值 布尔运算是计算机进行流程控制的基础，在 Python 中，布尔值用 True 和 False 表示。常见的为 False 值: None, '', (), [], {}, 0\nBy default, an object is considered true unless its class defines either a bool() method that returns False or a len() method that returns zero, when called with the object.\n运算符 比较运算符 常见比较运算符有 -、+、*、+=、-=、*=、\u003c、\u003c=、\u003e=、\u003e、==、!=、^、|、\u0026、in。每个运算符其实都是对象的魔法方法，当同时存在多个比较运算符时，会依据优先级进行运算\n1 2 3 4 5 6 7 8 9 10 # 字符串与数值之间不能直接进行运算， 需要类型转换 In : 6 + '4' TypeError: unsupported operand type(s) for +: 'int' and 'str' In : 6 + int('4') Out: 10 # 使用 type() 函数可以用来查看是操作对象什么类型 In : type(6), type('4') Out: (int, str) Python运算符优先级 逻辑运算符 逻辑运算符有三种，分别为 or, and, not，即或、与、非。三个逻辑运算符中，not 的优先级最高，但低于比较运算符，or 的优先级最低，and 位于两者之间。当逻辑运算符不止一个时，使用短路逻辑，逻辑运算一旦短路，立即终止计算\n从左至右，若 or 的左侧逻辑值为 True，则短路 or 后所有的表达式（不管是 and 还是 or） 从左至右，若 and 的左侧逻辑值为 False，则短路其后所有 and 表达式，直到有 or 出现 若 or 的左侧为 False，或者 and 的左侧为 True 则不能使用短路逻辑 1 2 3 4 5 6 7 8 9 10 11 12 13 14 In : 3 and 5, [] and 6 Out: (5, []) In : [] or 8, 3 or 5 Out: (8, 3) In : 0 and 0 and 1 and 0 and 1 Out: 0 In : 1 or 0 or 1 or 0 or 1 Out: 1 In : 0 and 0 and 1 and 0 or 1 and 1 or 0 and 1 Out: 1 python 中 and 和 or 运算的核心思想 条件表达式 1 2 3 4 [on true] if [expression] else [on false] In : 'T' if 2 \u003e 1 else 'F' Out: 'T' 命令 最基本的命令为赋值\n流程控制 控制流指一系列按顺序执行的指令\n控制结构 简单控制结构：\nif…else：分支结构 for：循环结构 while：循环结构 break：打破循环 continue：结束当前循环 range：等差数列 pass：跳过 复杂控制结构：\n可迭代对象、迭代器、生成器 上下文管理器 协程 asyncio for 与 while for 循环用于迭代固定数量的元素，按给定（正或负）增量进行迭代 while 执行逻辑循环，只要保持条件为真，就可以执行无限次迭代，使用 While 循环时，必须显式指定计数器以跟踪循环执行的次数 与 for 相比，while 效率低，因为 while 在每次迭代后检查条件是否为 True，当然使用 while 可以编写更为灵活的表达式\n1 2 3 4 5 In : timeit('i = 0\\nwhile i \u003c 100: i += 1') Out: 5.91581211599987 In : timeit('for i in range(100): pass') Out: 1.9179262340185232 与 else 结合使用\nfor … else … 指当循环自然结束而不是被 break 打破时执行 else 字句 while … else … 在循环条件为 false 时执行 else 语句块 内置类型 Python 的内置类型 The principal built-in types are numerics, sequences, mappings, classes, instances and exceptions\nPython 的内置类型被编译器和解释器特别对待，比如核心级别的指令和性能优化，专门设计的高效缓存等等\n内置类型可分为数字，序列，映射和集合几类。另根据其实例是否可被修改，又有可变（mutable)和不可变（immutable)的区分\n类型 举例 number int(N), float(N) sequence str(N), bytes(N), bytearray(Y), list(Y), tuple(N) mapping dict(Y) set set(Y), frozenset(N) 内置函数 issubclass 检查一个类是否是另一个类的子类；标准库 collections.abc 列出了相关类型的抽象基类\n1 2 3 4 5 6 7 In : from collections import abc In : issubclass(str, abc.Sequence) Out: True In : issubclass(dict, (abc.Mapping, abc.MutableMapping)) Out: True 可变与不可变对象 Python 中根据对象是否可被修改，可分为可变与不可变对象\n不可变对象：该对象所指向内存中的值不能被改变。包括数字、字符串、元组 可变对象：在改变对象的值时，内存地址不会发生改变。包括列表、字典、集合 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 In : a = 5 In : id(a) Out: 4518805664 In : a += 5 ## 不可变数据类型，赋值时开辟新对象，重新引用 In : id(a) Out: 4518805824 In : l = [1, 2, 3] In : id(l), id(l[0]) Out: (4578866696, 4544630816) In : l[0] = 4 In : id(l), id(l[0]) Out: (4578866696, 4544630912) 其他数据结构 Python标准库内置的collections模块提供了更多的选择。详见 collections\nnamedtuple()：用于创建元组子类的工厂函数（factory function），可以通过属性名来访问它的元索引 deque：双端队列，类似列表，是栈和队列的一般化，可以在两端快速添加或取出元素 ChainMap：类似字典的类，用于创建多个映射的单一视图 Counter：字典子类，由于对可哈希对象进行计数 OrderedDict：字典子类，可以保存元素的添加顺序 defaultdict：字典子类，可以通过调用用户自定义的工厂函数来设置缺失值 使用 序列索引 Python 序列的索引采用从 0 开始即使用 0-based 的索引方式？\n半开区间切片和缺省匹配区间切片语法变得非常漂亮：a[:n] 和 a[i:i+n] 当只有最后一个位置信息时，可以快速看出切片和区间里有几个元素：range(3) 和 my_list[:3] 都返回 3 个元素 当起止位置信息都可见时，可以快速计算出切片和区间的长度，用后一个数减去第一个下标（stop - start） 即可 半开区间两个切片操作位置邻接时，第一个切片操作的终点索引值是第二个切片的起点索引值。将数组以 i，j 两个点切成三部分为 a[:i]，a[i:j] 和 a[j:] 文章 “Why Numbering Should Start atZero”解释了为什么 ABCED[1:3] 的结果应该是 BC 而不是 BCD，以及为什么 2，3，…，12 应该写作 range(2, 13)\n序列解包 对于任意序列类型（包括字符串和字节序列），只要赋值运算符左边的变量数目与序列中的元素数目相等，则都可以将元素序列解包到另一组变量中\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 In : a, b, *c = 0, 1, 2, 3 In : a, b, *c Out: (0, 1, 2, 3) In : a, b, *c = 0, 1, 2, 3 In : a, b, c Out: (0, 1, [2, 3]) In : a, *b, c = 0, 1, 2, 3 In : a, b, c Out: (0, [1, 2], 3) In : (a, b), (c, d) = (1, 2), (3, 4) In : a, b, c, d Out: (1, 2, 3, 4) 相关阅读 内置函数 内置类型 表达式 collections.abc 官方文档 More Control Flow Tools ","wordCount":"689","inLanguage":"en","datePublished":"2021-10-01T15:40:18Z","dateModified":"2021-10-01T15:40:18Z","mainEntityOfPage":{"@type":"WebPage","@id":"http://120.79.76.172:8381/post/python%E5%9F%BA%E7%A1%80/"},"publisher":{"@type":"Organization","name":"haoyu blog","logo":{"@type":"ImageObject","url":"http://120.79.76.172:8381/%3Clink%20/%20abs%20url%3E"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://120.79.76.172:8381 accesskey=h title="haoyu blog (Alt + H)"><img src=http://120.79.76.172:8381/apple-touch-icon.png alt aria-label=logo height=35>haoyu blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=http://120.79.76.172:8381/archives/ title=时间轴><span>时间轴</span></a></li><li><a href=http://120.79.76.172:8381/tags/ title=标签><span>标签</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=http://120.79.76.172:8381>Home</a>&nbsp;»&nbsp;<a href=http://120.79.76.172:8381/post/>Posts</a></div><h1 class=post-title>python基础</h1><div class=post-meta><span title='2021-10-01 15:40:18 +0000 UTC'>October 1, 2021</span>&nbsp;·&nbsp;689 words</div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#概述>概述</a><ul><li><a href=#python-定义>Python 定义</a></li><li><a href=#优缺点>优缺点</a></li><li><a href=#结构>结构</a></li></ul></li><li><a href=#表达式>表达式</a><ul><li><a href=#布尔值>布尔值</a></li><li><a href=#运算符>运算符</a></li><li><a href=#条件表达式>条件表达式</a></li></ul></li><li><a href=#命令>命令</a></li><li><a href=#流程控制>流程控制</a><ul><li><a href=#控制结构>控制结构</a></li><li><a href=#for-与-while>for 与 while</a></li></ul></li><li><a href=#内置类型>内置类型</a><ul><li><a href=#python-的内置类型>Python 的内置类型</a></li><li><a href=#可变与不可变对象>可变与不可变对象</a></li><li><a href=#其他数据结构>其他数据结构</a></li><li><a href=#使用>使用</a></li></ul></li><li><a href=#相关阅读>相关阅读</a></li></ul></nav></div></details></div><div class=post-content><h1 id=基础>基础<a hidden class=anchor aria-hidden=true href=#基础>#</a></h1><p>[TOC]</p><h2 id=概述>概述<a hidden class=anchor aria-hidden=true href=#概述>#</a></h2><h3 id=python-定义>Python 定义<a hidden class=anchor aria-hidden=true href=#python-定义>#</a></h3><blockquote><p><code>Python</code> 是一种解释型、动态、面向对象的编程语言</p></blockquote><h4 id=解释型>解释型<a hidden class=anchor aria-hidden=true href=#解释型>#</a></h4><p><code>Python</code> 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 <code>PHP</code> 和 <code>Ruby</code>）</p><p>一般编程都是用高级语言，但计算机只能理解机器语言，所以需要把高级语言翻译成机器语言。翻译的方式有两种，一种是<strong>编译</strong>，一种是<strong>解释</strong>。两种方式只是翻译的时间不同。编译型语言只需要要翻译一次，运行时不需要翻译。而解释型语言在运行的时候才翻译</p><p><code>C</code> 语言适合开发那些追求运行速度、充分发挥硬件性能的程序。而 <code>Python</code> 适合用来编写应用程序，<code>Python</code> 源码文件在被导入时完成编译。编译后的字节码被缓存复用，通常会被缓存到磁盘，<code>Python3</code> 使用专门目录保存字节码缓存文件</p><h4 id=动态>动态<a hidden class=anchor aria-hidden=true href=#动态>#</a></h4><ul><li>动态语言：在运行时确定数据类型的语言，使用变量之前不需要类型声明</li><li>静态语言：在编译时即确定变量的数据类型，在使用变量之前必须声明类型</li></ul><p><code>Python</code> 同时也是一门强类型语言，动态还是静态指的是编译期还是运行期确定类型，强类型指的是不会发生隐式类型转换。<code>JS</code> 和 <code>PHP</code> 是弱类型语言，如 <code>JS</code> 中可以运行 <code>1 + '1'</code> 不报错</p><h4 id=面向对象>面向对象<a hidden class=anchor aria-hidden=true href=#面向对象>#</a></h4><p><strong>面向对象</strong>是一种程序设计思想，把对象作为程序的基本单元，一个对象包含了数据、属性和操作数据的方法。面向对象有三个基本特征：<strong>封装</strong>、<strong>继承</strong>、<strong>多态</strong></p><h3 id=优缺点>优缺点<a hidden class=anchor aria-hidden=true href=#优缺点>#</a></h3><p><strong>优点：</strong></p><ul><li>语法简洁优雅，易学</li><li>开发效率高，常适合做快速的原型开发</li><li>隐藏底层细节，比如内存管理</li><li>丰富的 <code>API</code>，第三方库</li><li>胶水语言，连接软件组件</li><li>各个领域都有建树</li></ul><p><strong>缺点：</strong></p><ul><li>运行速度慢，无法和编译的语言比，但可以通过使用 <code>C/C++</code> 写 <code>Python</code> 扩展等方式优化</li><li><code>GIL</code> 问题</li><li><code>Python2/3</code> 兼容问题</li></ul><h3 id=结构>结构<a hidden class=anchor aria-hidden=true href=#结构>#</a></h3><p><code>Python</code> 语言以统一的方式支持面向对象的程序设计。程序里定义和操作的各种实体都是对象。一个对象可以具有一些行为能力，通过方法，可以执行这些行为，行为可以操作对象内部的状态</p><ol><li><code>Python</code> 的基本程序单位是命令（语句），表达式是命令的组成部分，最基本的命令为赋值</li><li>为处理多个命令，提供了一套控制结构</li><li>随着程序的复杂，引入一种为函数的基本抽象机制</li><li>进而封装成类，模块，包</li></ol><h2 id=表达式>表达式<a hidden class=anchor aria-hidden=true href=#表达式>#</a></h2><h3 id=布尔值>布尔值<a hidden class=anchor aria-hidden=true href=#布尔值>#</a></h3><p>布尔运算是计算机进行流程控制的基础，在 <code>Python</code> 中，布尔值用 <code>True</code> 和 <code>False</code> 表示。常见的为 <code>False</code> 值: <code>None, '', (), [], {}, 0</code></p><blockquote><p>By default, an object is considered true unless its class defines either a <strong>bool</strong>() method that returns False or a <strong>len</strong>() method that returns zero, when called with the object.</p></blockquote><h3 id=运算符>运算符<a hidden class=anchor aria-hidden=true href=#运算符>#</a></h3><h4 id=比较运算符>比较运算符<a hidden class=anchor aria-hidden=true href=#比较运算符>#</a></h4><p>常见比较运算符有 <code>-、+、*、+=、-=、*=、&lt;、&lt;=、>=、>、==、!=、^、|、&、in</code>。每个运算符其实都是对象的魔法方法，当同时存在多个比较运算符时，会依据优先级进行运算</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 字符串与数值之间不能直接进行运算， 需要类型转换</span>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=mi>6</span> <span class=o>+</span> <span class=s1>&#39;4&#39;</span>
-</span></span><span class=line><span class=cl><span class=ne>TypeError</span><span class=p>:</span> <span class=n>unsupported</span> <span class=n>operand</span> <span class=nb>type</span><span class=p>(</span><span class=n>s</span><span class=p>)</span> <span class=k>for</span> <span class=o>+</span><span class=p>:</span> <span class=s1>&#39;int&#39;</span> <span class=ow>and</span> <span class=s1>&#39;str&#39;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=mi>6</span> <span class=o>+</span> <span class=nb>int</span><span class=p>(</span><span class=s1>&#39;4&#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=mi>10</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 使用 type() 函数可以用来查看是操作对象什么类型</span>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=nb>type</span><span class=p>(</span><span class=mi>6</span><span class=p>),</span> <span class=nb>type</span><span class=p>(</span><span class=s1>&#39;4&#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=nb>int</span><span class=p>,</span> <span class=nb>str</span><span class=p>)</span>
-</span></span></code></pre></td></tr></table></div></div><ul><li><a href=https://www.sojson.com/operation/python.html>Python运算符优先级</a></li></ul><h4 id=逻辑运算符>逻辑运算符<a hidden class=anchor aria-hidden=true href=#逻辑运算符>#</a></h4><p>逻辑运算符有三种，分别为 <code>or, and, not</code>，即或、与、非。三个逻辑运算符中，<code>not</code> 的优先级最高，但低于比较运算符，<code>or</code> 的优先级最低，<code>and</code> 位于两者之间。当逻辑运算符不止一个时，使用短路逻辑，逻辑运算一旦短路，立即终止计算</p><ul><li>从左至右，若 <code>or</code> 的左侧逻辑值为 True，则短路 <code>or</code> 后所有的表达式（不管是 <code>and</code> 还是 <code>or</code>）</li><li>从左至右，若 <code>and</code> 的左侧逻辑值为 False，则短路其后所有 <code>and</code> 表达式，直到有 <code>or</code> 出现</li><li>若 <code>or</code> 的左侧为 False，或者 <code>and</code> 的左侧为 True 则不能使用短路逻辑</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=mi>3</span> <span class=ow>and</span> <span class=mi>5</span><span class=p>,</span> <span class=p>[]</span> <span class=ow>and</span> <span class=mi>6</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=p>[])</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=p>[]</span> <span class=ow>or</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>3</span> <span class=ow>or</span> <span class=mi>5</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=mi>8</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=mi>0</span> <span class=ow>and</span> <span class=mi>0</span> <span class=ow>and</span> <span class=mi>1</span> <span class=ow>and</span> <span class=mi>0</span> <span class=ow>and</span> <span class=mi>1</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=mi>0</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=mi>1</span> <span class=ow>or</span> <span class=mi>0</span> <span class=ow>or</span> <span class=mi>1</span> <span class=ow>or</span> <span class=mi>0</span> <span class=ow>or</span> <span class=mi>1</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=mi>1</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=mi>0</span> <span class=ow>and</span> <span class=mi>0</span> <span class=ow>and</span> <span class=mi>1</span> <span class=ow>and</span> <span class=mi>0</span> <span class=ow>or</span> <span class=mi>1</span> <span class=ow>and</span> <span class=mi>1</span> <span class=ow>or</span> <span class=mi>0</span> <span class=ow>and</span> <span class=mi>1</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=mi>1</span>
-</span></span></code></pre></td></tr></table></div></div><ul><li><a href=https://www.cnblogs.com/an9wer/p/5475551.html>python 中 and 和 or 运算的核心思想</a></li></ul><h3 id=条件表达式>条件表达式<a hidden class=anchor aria-hidden=true href=#条件表达式>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=p>[</span><span class=n>on</span> <span class=n>true</span><span class=p>]</span> <span class=k>if</span> <span class=p>[</span><span class=n>expression</span><span class=p>]</span> <span class=k>else</span> <span class=p>[</span><span class=n>on</span> <span class=n>false</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=s1>&#39;T&#39;</span> <span class=k>if</span> <span class=mi>2</span> <span class=o>&gt;</span> <span class=mi>1</span> <span class=k>else</span> <span class=s1>&#39;F&#39;</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=s1>&#39;T&#39;</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=命令>命令<a hidden class=anchor aria-hidden=true href=#命令>#</a></h2><p>最基本的命令为赋值</p><h2 id=流程控制>流程控制<a hidden class=anchor aria-hidden=true href=#流程控制>#</a></h2><blockquote><p>控制流指一系列按顺序执行的指令</p></blockquote><h3 id=控制结构>控制结构<a hidden class=anchor aria-hidden=true href=#控制结构>#</a></h3><p><strong>简单控制结构：</strong></p><ul><li>if&mldr;else：分支结构</li><li>for：循环结构</li><li>while：循环结构</li><li>break：打破循环</li><li>continue：结束当前循环</li><li>range：等差数列</li><li>pass：跳过</li></ul><p><strong>复杂控制结构：</strong></p><ul><li>可迭代对象、迭代器、生成器</li><li>上下文管理器</li><li>协程</li><li>asyncio</li></ul><h3 id=for-与-while>for 与 while<a hidden class=anchor aria-hidden=true href=#for-与-while>#</a></h3><ul><li><code>for</code> 循环用于迭代固定数量的元素，按给定（正或负）增量进行迭代</li><li><code>while</code> 执行逻辑循环，只要保持条件为真，就可以执行无限次迭代，使用 <code>While</code> 循环时，必须显式指定计数器以跟踪循环执行的次数</li></ul><p>与 <code>for</code> 相比，<code>while</code> 效率低，因为 <code>while</code> 在每次迭代后检查条件是否为 <code>True</code>，当然使用 <code>while</code> 可以编写更为灵活的表达式</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>timeit</span><span class=p>(</span><span class=s1>&#39;i = 0</span><span class=se>\n</span><span class=s1>while i &lt; 100: i += 1&#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=mf>5.91581211599987</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>timeit</span><span class=p>(</span><span class=s1>&#39;for i in range(100): pass&#39;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=mf>1.9179262340185232</span>
-</span></span></code></pre></td></tr></table></div></div><p>与 else 结合使用</p><ul><li>for &mldr; else &mldr; 指当循环自然结束而不是被 break 打破时执行 else 字句</li><li>while … else &mldr; 在循环条件为 false 时执行 else 语句块</li></ul><h2 id=内置类型>内置类型<a hidden class=anchor aria-hidden=true href=#内置类型>#</a></h2><h3 id=python-的内置类型>Python 的内置类型<a hidden class=anchor aria-hidden=true href=#python-的内置类型>#</a></h3><blockquote><p>The principal built-in types are numerics, sequences, mappings, classes, instances and exceptions</p></blockquote><p><code>Python</code> 的内置类型被编译器和解释器特别对待，比如核心级别的指令和性能优化，专门设计的高效缓存等等</p><p>内置类型可分为<strong>数字</strong>，<strong>序列</strong>，<strong>映射</strong>和<strong>集合</strong>几类。另根据其实例是否可被修改，又有<strong>可变</strong>（<code>mutable</code>)和<strong>不可变</strong>（<code>immutable</code>)的区分</p><table><thead><tr><th style=text-align:left>类型</th><th style=text-align:left>举例</th></tr></thead><tbody><tr><td style=text-align:left>number</td><td style=text-align:left>int(N), float(N)</td></tr><tr><td style=text-align:left>sequence</td><td style=text-align:left>str(N), bytes(N), bytearray(Y), list(Y), tuple(N)</td></tr><tr><td style=text-align:left>mapping</td><td style=text-align:left>dict(Y)</td></tr><tr><td style=text-align:left>set</td><td style=text-align:left>set(Y), frozenset(N)</td></tr></tbody></table><p>内置函数 <code>issubclass</code> 检查一个类是否是另一个类的子类；标准库 <code>collections.abc</code> 列出了相关类型的抽象基类</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>abc</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=nb>issubclass</span><span class=p>(</span><span class=nb>str</span><span class=p>,</span> <span class=n>abc</span><span class=o>.</span><span class=n>Sequence</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=kc>True</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=nb>issubclass</span><span class=p>(</span><span class=nb>dict</span><span class=p>,</span> <span class=p>(</span><span class=n>abc</span><span class=o>.</span><span class=n>Mapping</span><span class=p>,</span> <span class=n>abc</span><span class=o>.</span><span class=n>MutableMapping</span><span class=p>))</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=kc>True</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=可变与不可变对象>可变与不可变对象<a hidden class=anchor aria-hidden=true href=#可变与不可变对象>#</a></h3><blockquote><p>Python 中根据对象是否可被修改，可分为可变与不可变对象</p></blockquote><ul><li><strong>不可变对象</strong>：该对象所指向内存中的值不能被改变。包括数字、字符串、元组</li><li><strong>可变对象</strong>：在改变对象的值时，内存地址不会发生改变。包括列表、字典、集合</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span> <span class=o>=</span> <span class=mi>5</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=nb>id</span><span class=p>(</span><span class=n>a</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=mi>4518805664</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span> <span class=o>+=</span> <span class=mi>5</span>    <span class=c1>## 不可变数据类型，赋值时开辟新对象，重新引用</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=nb>id</span><span class=p>(</span><span class=n>a</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=mi>4518805824</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>l</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=nb>id</span><span class=p>(</span><span class=n>l</span><span class=p>),</span> <span class=nb>id</span><span class=p>(</span><span class=n>l</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=mi>4578866696</span><span class=p>,</span> <span class=mi>4544630816</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>l</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=mi>4</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=nb>id</span><span class=p>(</span><span class=n>l</span><span class=p>),</span> <span class=nb>id</span><span class=p>(</span><span class=n>l</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=mi>4578866696</span><span class=p>,</span> <span class=mi>4544630912</span><span class=p>)</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=其他数据结构>其他数据结构<a hidden class=anchor aria-hidden=true href=#其他数据结构>#</a></h3><p>Python标准库内置的collections模块提供了更多的选择。详见 <a href=:/d1573526caeb4e3e9f2b0c50c1441435>collections</a></p><ul><li>namedtuple()：用于创建元组子类的工厂函数（factory function），可以通过属性名来访问它的元索引</li><li>deque：双端队列，类似列表，是栈和队列的一般化，可以在两端快速添加或取出元素</li><li>ChainMap：类似字典的类，用于创建多个映射的单一视图</li><li>Counter：字典子类，由于对可哈希对象进行计数</li><li>OrderedDict：字典子类，可以保存元素的添加顺序</li><li>defaultdict：字典子类，可以通过调用用户自定义的工厂函数来设置缺失值</li></ul><h3 id=使用>使用<a hidden class=anchor aria-hidden=true href=#使用>#</a></h3><h4 id=序列索引>序列索引<a hidden class=anchor aria-hidden=true href=#序列索引>#</a></h4><p><code>Python</code> 序列的索引采用从 0 开始即使用 <code>0-based</code> 的索引方式？</p><ul><li>半开区间切片和缺省匹配区间切片语法变得非常漂亮：<code>a[:n]</code> 和 <code>a[i:i+n]</code></li><li>当只有最后一个位置信息时，可以快速看出切片和区间里有几个元素：<code>range(3)</code> 和 <code>my_list[:3]</code> 都返回 3 个元素</li><li>当起止位置信息都可见时，可以快速计算出切片和区间的长度，用后一个数减去第一个下标<code>（stop - start）</code> 即可</li><li>半开区间两个切片操作位置邻接时，第一个切片操作的终点索引值是第二个切片的起点索引值。将数组以 i，j 两个点切成三部分为 <code>a[:i]</code>，<code>a[i:j]</code> 和 <code>a[j:]</code></li></ul><p>文章 <a href=http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html>“Why Numbering Should Start atZero”</a>解释了为什么 <code>ABCED[1:3]</code> 的结果应该是 BC 而不是 BCD，以及为什么 2，3，…，12 应该写作 <code>range(2, 13)</code></p><h4 id=序列解包>序列解包<a hidden class=anchor aria-hidden=true href=#序列解包>#</a></h4><p>对于任意序列类型（包括字符串和字节序列），只要赋值运算符左边的变量数目与序列中的元素数目相等，则都可以将元素序列解包到另一组变量中</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=o>*</span><span class=n>c</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=o>*</span><span class=n>c</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=o>*</span><span class=n>c</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=n>c</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=p>[</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>])</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span><span class=p>,</span> <span class=o>*</span><span class=n>b</span><span class=p>,</span> <span class=n>c</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=n>c</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>],</span> <span class=mi>3</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>),</span> <span class=p>(</span><span class=n>c</span><span class=p>,</span> <span class=n>d</span><span class=p>)</span> <span class=o>=</span> <span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>),</span> <span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>In</span> <span class=p>:</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=n>c</span><span class=p>,</span> <span class=n>d</span>
-</span></span><span class=line><span class=cl><span class=n>Out</span><span class=p>:</span> <span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>)</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=相关阅读>相关阅读<a hidden class=anchor aria-hidden=true href=#相关阅读>#</a></h2><ul><li><a href=https://docs.python.org/zh-cn/3/library/functions.html>内置函数</a></li><li><a href=https://docs.python.org/3/library/stdtypes.html>内置类型</a></li><li><a href=https://docs.python.org/3/reference/expressions.html>表达式</a></li><li><a href=https://docs.python.org/3/library/collections.abc.html>collections.abc 官方文档</a></li><li><a href=https://docs.python.org/3/tutorial/controlflow.html>More Control Flow Tools</a></li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=http://120.79.76.172:8381/tags/python/>python</a></li></ul><nav class=paginav><a class=prev href=http://120.79.76.172:8381/post/python%E5%88%97%E8%A1%A8%E4%B8%8E%E5%85%83%E7%BB%84/><span class=title>« Prev</span><br><span>python列表与元组</span></a>
-<a class=next href=http://120.79.76.172:8381/post/python%E5%AD%97%E5%85%B8%E4%B8%8E%E9%9B%86%E5%90%88/><span class=title>Next »</span><br><span>python字典与集合</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2022 <a href=http://120.79.76.172:8381>haoyu blog</a></span>
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>python基础 - haoyu blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="haoyu" /><meta name="description" content="基础 [TOC] 概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby） 一般编" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.104.3 with theme even" />
+
+
+<link rel="canonical" href="https://haoyu36.github.io/post/python%E5%9F%BA%E7%A1%80/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="python基础" />
+<meta property="og:description" content="基础 [TOC] 概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby） 一般编" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://haoyu36.github.io/post/python%E5%9F%BA%E7%A1%80/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-01T15:40:18+00:00" />
+<meta property="article:modified_time" content="2021-10-01T15:40:18+00:00" />
+
+<meta itemprop="name" content="python基础">
+<meta itemprop="description" content="基础 [TOC] 概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby） 一般编"><meta itemprop="datePublished" content="2021-10-01T15:40:18+00:00" />
+<meta itemprop="dateModified" content="2021-10-01T15:40:18+00:00" />
+<meta itemprop="wordCount" content="2929">
+<meta itemprop="keywords" content="python," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="python基础"/>
+<meta name="twitter:description" content="基础 [TOC] 概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby） 一般编"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">haoyu</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">haoyu</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">python基础</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-10-01 </span>
+        
+          <span class="more-meta"> 约 2929 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#概述">概述</a>
+          <ul>
+            <li><a href="#python-定义">Python 定义</a></li>
+            <li><a href="#优缺点">优缺点</a></li>
+            <li><a href="#结构">结构</a></li>
+          </ul>
+        </li>
+        <li><a href="#表达式">表达式</a>
+          <ul>
+            <li><a href="#布尔值">布尔值</a></li>
+            <li><a href="#运算符">运算符</a></li>
+            <li><a href="#条件表达式">条件表达式</a></li>
+          </ul>
+        </li>
+        <li><a href="#命令">命令</a></li>
+        <li><a href="#流程控制">流程控制</a>
+          <ul>
+            <li><a href="#控制结构">控制结构</a></li>
+            <li><a href="#for-与-while">for 与 while</a></li>
+          </ul>
+        </li>
+        <li><a href="#内置类型">内置类型</a>
+          <ul>
+            <li><a href="#python-的内置类型">Python 的内置类型</a></li>
+            <li><a href="#可变与不可变对象">可变与不可变对象</a></li>
+            <li><a href="#其他数据结构">其他数据结构</a></li>
+            <li><a href="#使用">使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#相关阅读">相关阅读</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="基础">基础</h1>
+<p>[TOC]</p>
+<h2 id="概述">概述</h2>
+<h3 id="python-定义">Python 定义</h3>
+<blockquote>
+<p><code>Python</code> 是一种解释型、动态、面向对象的编程语言</p>
+</blockquote>
+<h4 id="解释型">解释型</h4>
+<p><code>Python</code> 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 <code>PHP</code> 和 <code>Ruby</code>）</p>
+<p>一般编程都是用高级语言，但计算机只能理解机器语言，所以需要把高级语言翻译成机器语言。翻译的方式有两种，一种是<strong>编译</strong>，一种是<strong>解释</strong>。两种方式只是翻译的时间不同。编译型语言只需要要翻译一次，运行时不需要翻译。而解释型语言在运行的时候才翻译</p>
+<p><code>C</code> 语言适合开发那些追求运行速度、充分发挥硬件性能的程序。而 <code>Python</code> 适合用来编写应用程序，<code>Python</code> 源码文件在被导入时完成编译。编译后的字节码被缓存复用，通常会被缓存到磁盘，<code>Python3</code> 使用专门目录保存字节码缓存文件</p>
+<h4 id="动态">动态</h4>
+<ul>
+<li>动态语言：在运行时确定数据类型的语言，使用变量之前不需要类型声明</li>
+<li>静态语言：在编译时即确定变量的数据类型，在使用变量之前必须声明类型</li>
+</ul>
+<p><code>Python</code> 同时也是一门强类型语言，动态还是静态指的是编译期还是运行期确定类型，强类型指的是不会发生隐式类型转换。<code>JS</code> 和 <code>PHP</code> 是弱类型语言，如 <code>JS</code> 中可以运行 <code>1 + '1'</code> 不报错</p>
+<h4 id="面向对象">面向对象</h4>
+<p><strong>面向对象</strong>是一种程序设计思想，把对象作为程序的基本单元，一个对象包含了数据、属性和操作数据的方法。面向对象有三个基本特征：<strong>封装</strong>、<strong>继承</strong>、<strong>多态</strong></p>
+<h3 id="优缺点">优缺点</h3>
+<p><strong>优点：</strong></p>
+<ul>
+<li>语法简洁优雅，易学</li>
+<li>开发效率高，常适合做快速的原型开发</li>
+<li>隐藏底层细节，比如内存管理</li>
+<li>丰富的 <code>API</code>，第三方库</li>
+<li>胶水语言，连接软件组件</li>
+<li>各个领域都有建树</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>运行速度慢，无法和编译的语言比，但可以通过使用 <code>C/C++</code> 写 <code>Python</code> 扩展等方式优化</li>
+<li><code>GIL</code> 问题</li>
+<li><code>Python2/3</code> 兼容问题</li>
+</ul>
+<h3 id="结构">结构</h3>
+<p><code>Python</code> 语言以统一的方式支持面向对象的程序设计。程序里定义和操作的各种实体都是对象。一个对象可以具有一些行为能力，通过方法，可以执行这些行为，行为可以操作对象内部的状态</p>
+<ol>
+<li><code>Python</code> 的基本程序单位是命令（语句），表达式是命令的组成部分，最基本的命令为赋值</li>
+<li>为处理多个命令，提供了一套控制结构</li>
+<li>随着程序的复杂，引入一种为函数的基本抽象机制</li>
+<li>进而封装成类，模块，包</li>
+</ol>
+<h2 id="表达式">表达式</h2>
+<h3 id="布尔值">布尔值</h3>
+<p>布尔运算是计算机进行流程控制的基础，在 <code>Python</code> 中，布尔值用 <code>True</code> 和 <code>False</code> 表示。常见的为 <code>False</code> 值: <code>None, '', (), [], {}, 0</code></p>
+<blockquote>
+<p>By default, an object is considered true unless its class defines either a <strong>bool</strong>() method that returns False or a <strong>len</strong>() method that returns zero, when called with the object.</p>
+</blockquote>
+<h3 id="运算符">运算符</h3>
+<h4 id="比较运算符">比较运算符</h4>
+<p>常见比较运算符有  <code>-、+、*、+=、-=、*=、&lt;、&lt;=、&gt;=、&gt;、==、!=、^、|、&amp;、in</code>。每个运算符其实都是对象的魔法方法，当同时存在多个比较运算符时，会依据优先级进行运算</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 字符串与数值之间不能直接进行运算， 需要类型转换</span>
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="mi">6</span> <span class="o">+</span> <span class="s1">&#39;4&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">+</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span> <span class="ow">and</span> <span class="s1">&#39;str&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="mi">6</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 type() 函数可以用来查看是操作对象什么类型</span>
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><a href="https://www.sojson.com/operation/python.html">Python运算符优先级</a></li>
+</ul>
+<h4 id="逻辑运算符">逻辑运算符</h4>
+<p>逻辑运算符有三种，分别为 <code>or, and, not</code>，即或、与、非。三个逻辑运算符中，<code>not</code> 的优先级最高，但低于比较运算符，<code>or</code> 的优先级最低，<code>and</code> 位于两者之间。当逻辑运算符不止一个时，使用短路逻辑，逻辑运算一旦短路，立即终止计算</p>
+<ul>
+<li>从左至右，若 <code>or</code> 的左侧逻辑值为 True，则短路 <code>or</code> 后所有的表达式（不管是 <code>and</code> 还是 <code>or</code>）</li>
+<li>从左至右，若 <code>and</code> 的左侧逻辑值为 False，则短路其后所有 <code>and</code> 表达式，直到有 <code>or</code> 出现</li>
+<li>若 <code>or</code> 的左侧为 False，或者 <code>and</code> 的左侧为 True 则不能使用短路逻辑</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[]</span> <span class="ow">and</span> <span class="mi">6</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="p">[]</span> <span class="ow">or</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span> <span class="ow">or</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="mi">1</span> <span class="ow">or</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span> <span class="ow">or</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">1</span> <span class="ow">or</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><a href="https://www.cnblogs.com/an9wer/p/5475551.html">python 中 and 和 or 运算的核心思想</a></li>
+</ul>
+<h3 id="条件表达式">条件表达式</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="p">[</span><span class="n">on</span> <span class="n">true</span><span class="p">]</span> <span class="k">if</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span> <span class="k">else</span> <span class="p">[</span><span class="n">on</span> <span class="n">false</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="s1">&#39;T&#39;</span> <span class="k">if</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;F&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="命令">命令</h2>
+<p>最基本的命令为赋值</p>
+<h2 id="流程控制">流程控制</h2>
+<blockquote>
+<p>控制流指一系列按顺序执行的指令</p>
+</blockquote>
+<h3 id="控制结构">控制结构</h3>
+<p><strong>简单控制结构：</strong></p>
+<ul>
+<li>if&hellip;else：分支结构</li>
+<li>for：循环结构</li>
+<li>while：循环结构</li>
+<li>break：打破循环</li>
+<li>continue：结束当前循环</li>
+<li>range：等差数列</li>
+<li>pass：跳过</li>
+</ul>
+<p><strong>复杂控制结构：</strong></p>
+<ul>
+<li>可迭代对象、迭代器、生成器</li>
+<li>上下文管理器</li>
+<li>协程</li>
+<li>asyncio</li>
+</ul>
+<h3 id="for-与-while">for 与 while</h3>
+<ul>
+<li><code>for</code> 循环用于迭代固定数量的元素，按给定（正或负）增量进行迭代</li>
+<li><code>while</code> 执行逻辑循环，只要保持条件为真，就可以执行无限次迭代，使用 <code>While</code> 循环时，必须显式指定计数器以跟踪循环执行的次数</li>
+</ul>
+<p>与 <code>for</code> 相比，<code>while</code> 效率低，因为 <code>while</code> 在每次迭代后检查条件是否为 <code>True</code>，当然使用 <code>while</code> 可以编写更为灵活的表达式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;i = 0</span><span class="se">\n</span><span class="s1">while i &lt; 100: i += 1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mf">5.91581211599987</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;for i in range(100): pass&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mf">1.9179262340185232</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>与 else 结合使用</p>
+<ul>
+<li>for &hellip; else &hellip;  指当循环自然结束而不是被 break 打破时执行 else 字句</li>
+<li>while … else &hellip; 在循环条件为 false 时执行 else 语句块</li>
+</ul>
+<h2 id="内置类型">内置类型</h2>
+<h3 id="python-的内置类型">Python 的内置类型</h3>
+<blockquote>
+<p>The principal built-in types are numerics, sequences, mappings, classes, instances and exceptions</p>
+</blockquote>
+<p><code>Python</code> 的内置类型被编译器和解释器特别对待，比如核心级别的指令和性能优化，专门设计的高效缓存等等</p>
+<p>内置类型可分为<strong>数字</strong>，<strong>序列</strong>，<strong>映射</strong>和<strong>集合</strong>几类。另根据其实例是否可被修改，又有<strong>可变</strong>（<code>mutable</code>)和<strong>不可变</strong>（<code>immutable</code>)的区分</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">number</td>
+<td style="text-align:left">int(N), float(N)</td>
+</tr>
+<tr>
+<td style="text-align:left">sequence</td>
+<td style="text-align:left">str(N), bytes(N), bytearray(Y), list(Y), tuple(N)</td>
+</tr>
+<tr>
+<td style="text-align:left">mapping</td>
+<td style="text-align:left">dict(Y)</td>
+</tr>
+<tr>
+<td style="text-align:left">set</td>
+<td style="text-align:left">set(Y), frozenset(N)</td>
+</tr>
+</tbody>
+</table>
+<p>内置函数 <code>issubclass</code> 检查一个类是否是另一个类的子类；标准库 <code>collections.abc</code> 列出了相关类型的抽象基类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">abc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">MutableMapping</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="kc">True</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="可变与不可变对象">可变与不可变对象</h3>
+<blockquote>
+<p>Python 中根据对象是否可被修改，可分为可变与不可变对象</p>
+</blockquote>
+<ul>
+<li><strong>不可变对象</strong>：该对象所指向内存中的值不能被改变。包括数字、字符串、元组</li>
+<li><strong>可变对象</strong>：在改变对象的值时，内存地址不会发生改变。包括列表、字典、集合</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">4518805664</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span> <span class="o">+=</span> <span class="mi">5</span>    <span class="c1">## 不可变数据类型，赋值时开辟新对象，重新引用</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">4518805824</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="mi">4578866696</span><span class="p">,</span> <span class="mi">4544630816</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="mi">4578866696</span><span class="p">,</span> <span class="mi">4544630912</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="其他数据结构">其他数据结构</h3>
+<p>Python标准库内置的collections模块提供了更多的选择。详见 <a href=":/d1573526caeb4e3e9f2b0c50c1441435">collections</a></p>
+<ul>
+<li>namedtuple()：用于创建元组子类的工厂函数（factory function），可以通过属性名来访问它的元索引</li>
+<li>deque：双端队列，类似列表，是栈和队列的一般化，可以在两端快速添加或取出元素</li>
+<li>ChainMap：类似字典的类，用于创建多个映射的单一视图</li>
+<li>Counter：字典子类，由于对可哈希对象进行计数</li>
+<li>OrderedDict：字典子类，可以保存元素的添加顺序</li>
+<li>defaultdict：字典子类，可以通过调用用户自定义的工厂函数来设置缺失值</li>
+</ul>
+<h3 id="使用">使用</h3>
+<h4 id="序列索引">序列索引</h4>
+<p><code>Python</code> 序列的索引采用从 0 开始即使用 <code>0-based</code> 的索引方式？</p>
+<ul>
+<li>半开区间切片和缺省匹配区间切片语法变得非常漂亮：<code>a[:n]</code> 和 <code>a[i:i+n]</code></li>
+<li>当只有最后一个位置信息时，可以快速看出切片和区间里有几个元素：<code>range(3)</code> 和 <code>my_list[:3]</code> 都返回 3 个元素</li>
+<li>当起止位置信息都可见时，可以快速计算出切片和区间的长度，用后一个数减去第一个下标<code>（stop - start）</code> 即可</li>
+<li>半开区间两个切片操作位置邻接时，第一个切片操作的终点索引值是第二个切片的起点索引值。将数组以 i，j 两个点切成三部分为 <code>a[:i]</code>，<code>a[i:j]</code> 和 <code>a[j:]</code></li>
+</ul>
+<p>文章 <a href="http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html">“Why Numbering Should Start atZero”</a>解释了为什么 <code>ABCED[1:3]</code> 的结果应该是 BC  而不是 BCD，以及为什么 2，3，…，12 应该写作 <code>range(2, 13)</code></p>
+<h4 id="序列解包">序列解包</h4>
+<p>对于任意序列类型（包括字符串和字节序列），只要赋值运算符左边的变量数目与序列中的元素数目相等，则都可以将元素序列解包到另一组变量中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="相关阅读">相关阅读</h2>
+<ul>
+<li><a href="https://docs.python.org/zh-cn/3/library/functions.html">内置函数</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html">内置类型</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html">表达式</a></li>
+<li><a href="https://docs.python.org/3/library/collections.abc.html">collections.abc 官方文档</a></li>
+<li><a href="https://docs.python.org/3/tutorial/controlflow.html">More Control Flow Tools</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">haoyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-10-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python/">python</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/mysql%E5%9F%BA%E7%A1%80/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">mysql基础</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/python%E5%88%97%E8%A1%A8%E4%B8%8E%E5%85%83%E7%BB%84/">
+            <span class="next-text nav-default">python列表与元组</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://haoyu36.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>haoyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,3 +1,2 @@
 User-agent: *
-Disallow:
-Sitemap: http://120.79.76.172:8381/sitemap.xml
+Sitemap: https://haoyu36.github.io/sitemap.xml

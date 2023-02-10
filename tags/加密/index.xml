@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>加密 on haoyu blog</title>
-    <link>http://120.79.76.172:8381/tags/%E5%8A%A0%E5%AF%86/</link>
+    <link>https://haoyu36.github.io/tags/%E5%8A%A0%E5%AF%86/</link>
     <description>Recent content in 加密 on haoyu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Oct 2021 15:40:18 +0000</lastBuildDate><atom:link href="http://120.79.76.172:8381/tags/%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 01 Oct 2021 15:40:18 +0000</lastBuildDate><atom:link href="https://haoyu36.github.io/tags/%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>凯撒密码</title>
-      <link>http://120.79.76.172:8381/post/%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/</link>
+      <link>https://haoyu36.github.io/post/%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/</link>
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
-      <guid>http://120.79.76.172:8381/post/%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/</guid>
-      <description>凯撒密码 一：概述 凯撒密码是已知最早，最简单的密码之一。通过替换字母完成加密，每个字母由字母表中其后特定位数的字母代替。如偏移量为1，则 A 变为 B，B 变为 C
-凯撒密码的关键是偏移量
-1 2 3 # 偏移量为 1 明文：i am iron man 密文：j bn jspo nbo 二：破解 暴力破解：由于加密的密钥一共就0-25之间的数字，所以可以穷举所有的可能</description>
+      <guid>https://haoyu36.github.io/post/%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/</guid>
+      <description>凯撒密码 一：概述 凯撒密码是已知最早，最简单的密码之一。通过替换字母完成加密，每个字母由字母表中其后特定位数的字母代替。如偏移量为1，则 A 变为</description>
     </item>
     
   </channel>

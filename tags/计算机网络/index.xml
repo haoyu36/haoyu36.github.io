@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>计算机网络 on haoyu blog</title>
-    <link>http://120.79.76.172:8381/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+    <link>https://haoyu36.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
     <description>Recent content in 计算机网络 on haoyu blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Oct 2021 15:40:18 +0000</lastBuildDate><atom:link href="http://120.79.76.172:8381/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 01 Oct 2021 15:40:18 +0000</lastBuildDate><atom:link href="https://haoyu36.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>网络层次</title>
-      <link>http://120.79.76.172:8381/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/</link>
+      <link>https://haoyu36.github.io/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/</link>
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
-      <guid>http://120.79.76.172:8381/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/</guid>
-      <description>分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决
-网络层次 [TOC]
-为了解决 (兼容)不同设备之间的通信问题，需要一套通用的网络协议
-一：分层 1.1 网络为什么分层 分层是为了解决复杂性，如果把所有的步骤都放到一个层次，那么这一层就会变得非常复杂，耦合度非常高，不容易理解</description>
+      <guid>https://haoyu36.github.io/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/</guid>
+      <description>分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决 网络层次 [TOC] 为了解决 (兼容)不同设备之间的通信问题，需</description>
     </item>
     
   </channel>
