@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>python使用—文件读写 - haoyu blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="haoyu" /><meta name="description" content="[TOC] 文件读写 一：文件 文件是储存在外部介质上的数据或信息集合。如程序中的源程序，数据中保存的数据，图像中的像素数据 二进制文件是信息按照非字符但特" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.104.3 with theme even" />
+
+
+<link rel="canonical" href="https://haoyu36.github.io/post/python%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="python使用—文件读写" />
+<meta property="og:description" content="[TOC] 文件读写 一：文件 文件是储存在外部介质上的数据或信息集合。如程序中的源程序，数据中保存的数据，图像中的像素数据 二进制文件是信息按照非字符但特" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://haoyu36.github.io/post/python%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-01T15:40:18+00:00" />
+<meta property="article:modified_time" content="2021-10-01T15:40:18+00:00" />
+
+<meta itemprop="name" content="python使用—文件读写">
+<meta itemprop="description" content="[TOC] 文件读写 一：文件 文件是储存在外部介质上的数据或信息集合。如程序中的源程序，数据中保存的数据，图像中的像素数据 二进制文件是信息按照非字符但特"><meta itemprop="datePublished" content="2021-10-01T15:40:18+00:00" />
+<meta itemprop="dateModified" content="2021-10-01T15:40:18+00:00" />
+<meta itemprop="wordCount" content="1656">
+<meta itemprop="keywords" content="python使用," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="python使用—文件读写"/>
+<meta name="twitter:description" content="[TOC] 文件读写 一：文件 文件是储存在外部介质上的数据或信息集合。如程序中的源程序，数据中保存的数据，图像中的像素数据 二进制文件是信息按照非字符但特"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">haoyu</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">haoyu</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">python使用—文件读写</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-10-01 </span>
+        
+          <span class="more-meta"> 约 1656 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#文件读写">文件读写</a>
+      <ul>
+        <li><a href="#一文件">一：文件</a></li>
+        <li><a href="#二open">二：open</a>
+          <ul>
+            <li><a href="#打开文件">打开文件</a></li>
+            <li><a href="#mode">mode</a></li>
+            <li><a href="#读写方法">读写方法</a></li>
+            <li><a href="#光标">光标</a></li>
+            <li><a href="#关闭文件">关闭文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#三使用">三：使用</a>
+          <ul>
+            <li><a href="#编码与换行符">编码与换行符</a></li>
+            <li><a href="#读写文本数据">读写文本数据</a></li>
+            <li><a href="#读写二进制数据">读写二进制数据</a></li>
+            <li><a href="#对已不存在的文件执行写入操作">对已不存在的文件执行写入操作</a></li>
+          </ul>
+        </li>
+        <li><a href="#四读取指定大小的文件">四：读取指定大小的文件</a></li>
+        <li><a href="#五相关阅读">五：相关阅读</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>[TOC]</p>
+<h1 id="文件读写">文件读写</h1>
+<h2 id="一文件">一：文件</h2>
+<p>文件是储存在外部介质上的数据或信息集合。如程序中的源程序，数据中保存的数据，图像中的像素数据</p>
+<p><strong>二进制文件</strong>是信息按照非字符但特定格式形成的文件，由于没有统一的字符编码，只能当做字节流，而不能看作字符串。照片，音乐，视频，计算机程序都采用二进制存储，更加节省空间且表示更为精确</p>
+<p>通常文件会包含以下信息：名字，类型（类型表明了文件中包含了哪种文件的数据），属性，位置，大小等等</p>
+<p><code>Python</code> 中，文件操作按以下顺序进行</p>
+<ol>
+<li>打开文件建立文件对象</li>
+<li>通过文件对象对文件进行操作</li>
+<li>关闭文件</li>
+</ol>
+<h2 id="二open">二：open</h2>
+<h3 id="打开文件">打开文件</h3>
+<p>使用内置函数 <code>open()</code> 打开文件，如果文件无法打开，引发 <code>OSError</code></p>
+<p><code>mode</code> 是一个可选的字符串，用于指定打开文件的模式。默认为 &lsquo;r&rsquo;，表示在文本模式下打开。在文本模式下，如果未指定编码，则使用的编码取决于平台</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span>    <span class="c1"># 返回文件对象</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">_io</span><span class="o">.</span><span class="n">TextIOWrapper</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test.txt&#39;</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 文件对象方法</span>
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="s1">&#39;buffer, close, closed, detach, encoding, errors, fileno, flush, isatty, line_buffering, mode, name, newlines, read, readable, readline, readlines, seek, seekable, tell, truncate, writable, write, writelines&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="mode">mode</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">mode</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:left">open for reading (default)</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">open for writing, truncating the file first</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">create a new file and open it for writing</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">open for writing, appending to the end of the file if it exists</td>
+</tr>
+<tr>
+<td style="text-align:left">b</td>
+<td style="text-align:left">binary mode</td>
+</tr>
+<tr>
+<td style="text-align:left">t</td>
+<td style="text-align:left">text mode (default)</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">open a disk file for updating (reading and writing)</td>
+</tr>
+</tbody>
+</table>
+<p>模式可以组合，比如 rb 就表示读取二进制文件</p>
+<h3 id="读写方法">读写方法</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">f.read(size=1)</td>
+<td style="text-align:left">读取整个文件内容，如果给出参数，读入前 size 长度的字符串或字节流</td>
+</tr>
+<tr>
+<td style="text-align:left">f.readline(size=1)</td>
+<td style="text-align:left">读取一行内容，加参数</td>
+</tr>
+<tr>
+<td style="text-align:left">f.readlines(hint=1)</td>
+<td style="text-align:left">读取所有行，或读取 hint 行</td>
+</tr>
+<tr>
+<td style="text-align:left">f.write(s)</td>
+<td style="text-align:left">向一个文件写入字符串或字节流</td>
+</tr>
+<tr>
+<td style="text-align:left">f.writelines(lines)</td>
+<td style="text-align:left">将一个元素全为字符串的列表写入文件</td>
+</tr>
+<tr>
+<td style="text-align:left">f.seek(offset)</td>
+<td style="text-align:left">改变当前文件操作指针位置</td>
+</tr>
+<tr>
+<td style="text-align:left">f.tell()</td>
+<td style="text-align:left">返回文件当前指针</td>
+</tr>
+</tbody>
+</table>
+<h3 id="光标">光标</h3>
+<p>文件的本质操作就是光标的走向</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;b</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;c</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>    <span class="c1"># 光标已移至末尾</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># 改变光标的位置</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;b</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;c</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="关闭文件">关闭文件</h3>
+<p>使用 <code>f.close()</code> 关闭文件并不安全，如果对文件执行操作时引发异常，则不会关闭文件。可以使用 <code>with</code> 上下文管理器，在 with 退出时自动关闭文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">cat</span> <span class="n">test</span><span class="o">.</span><span class="n">txt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>    <span class="c1"># 显示调用close函数才能写入文件</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="n">cat</span> <span class="n">test</span><span class="o">.</span><span class="n">txt</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="三使用">三：使用</h2>
+<h3 id="编码与换行符">编码与换行符</h3>
+<p>文件的读取和写入采用的都是系统默认的文本编码方式，可以通过 <code>sys.getdefaultencoding()</code> 查询，可以对文本文件的编码进行设置</p>
+<p>关于换行符的识别，在 <code>UNIX</code> 和 <code>Windows</code> 上是不同的。默认情况下，<code>Python</code> 能识别所有常见的换行格式</p>
+<p>在读取文件时会将换行符转换为一个单独的 <code>\n</code> 字符，在输出换行符时会被转换为默认的换行符，<code>x.strip()</code> 函数去除空行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;haoyu&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1997</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">haoyu</span> <span class="mi">20</span> <span class="mi">1997</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;haoyu&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1997</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>    <span class="c1"># 修改分隔符</span>
+</span></span><span class="line"><span class="cl"><span class="n">haoyu</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">1997</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;haoyu&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1997</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;!!</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># 修改结尾符</span>
+</span></span><span class="line"><span class="cl"><span class="n">haoyu</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">1997</span><span class="err">!!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>    <span class="c1"># 禁止打印出换行符</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span><span class="p">:</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="mi">012</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="读写文本数据">读写文本数据</h3>
+<p>使用 <code>open()</code> 函数配合 <code>rt</code> 模式读取文本文件的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 打开整个文件为一个字符串</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span><span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">date</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 迭代文件的每一行</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;somefile.txt&#39;</span><span class="p">,</span><span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># process line</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 写模式会先清空文件</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;somefile&#39;</span><span class="p">,</span><span class="s1">&#39;wt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="读写二进制数据">读写二进制数据</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#  使用 rb 读取二进制文件</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 wb 写入二进制数据</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>读取二进制数据时所有数据应以字节串（<code>byte string</code>）的形式返回而不是文本字符串</p>
+<p>同样的当写入二进制数据时，数据必须是以对象的形式来提供，而且该对象可以将数据已字节形式暴露出来（字节串，bytearray 等）</p>
+<p>在进行索引和迭代操作时，字节串会返回代表该字节的整数值而不是字符串</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># text string</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="s1">&#39;H&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">:</span> <span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># Byte string</span>
+</span></span><span class="line"><span class="cl"><span class="n">Out</span><span class="p">:</span> <span class="mi">72</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在对二进制文件中读取或写入文本内容，确保进行编码或解码操作</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile&#39;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;浩宇&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;somefile&#39;</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="对已不存在的文件执行写入操作">对已不存在的文件执行写入操作</h3>
+<p>在文件不存在时将数据写入到一个文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 使用 x 模式，如果文件存在则报错</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;xt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 os 模块</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;wt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file already exists!&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="四读取指定大小的文件">四：读取指定大小的文件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">read_in_chunks</span><span class="p">(</span><span class="n">file_obj</span><span class="p">,</span> <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">2048</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;默认块大小：2KB&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">file_obj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>  <span class="c1"># 每次读取指定的长度</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">chuck</span> <span class="ow">in</span> <span class="n">read_in_chunks</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">do_something</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取遍历文件的每一行</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">do_something</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="五相关阅读">五：相关阅读</h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/functions.html#open">open()</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">haoyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-10-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python%E4%BD%BF%E7%94%A8/">python使用</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/python%E4%BD%BF%E7%94%A8json/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">python使用—json</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/python%E5%AD%97%E5%85%B8%E4%B8%8E%E9%9B%86%E5%90%88/">
+            <span class="next-text nav-default">python字典与集合</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://haoyu36.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>haoyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

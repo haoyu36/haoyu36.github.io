@@ -80,6 +80,24 @@
     </item>
     
     <item>
+      <title>python使用—json</title>
+      <link>https://haoyu36.github.io/post/python%E4%BD%BF%E7%94%A8json/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>https://haoyu36.github.io/post/python%E4%BD%BF%E7%94%A8json/</guid>
+      <description>[TOC] json 一：序列化与反序列化 **JSON（JavaScript Object Notation）**是一种轻量级数据交换格式，json 格式包括对象和数组，用大</description>
+    </item>
+    
+    <item>
+      <title>python使用—文件读写</title>
+      <link>https://haoyu36.github.io/post/python%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>https://haoyu36.github.io/post/python%E4%BD%BF%E7%94%A8%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</guid>
+      <description>[TOC] 文件读写 一：文件 文件是储存在外部介质上的数据或信息集合。如程序中的源程序，数据中保存的数据，图像中的像素数据 二进制文件是信息按照非字符但特</description>
+    </item>
+    
+    <item>
       <title>python字典与集合</title>
       <link>https://haoyu36.github.io/post/python%E5%AD%97%E5%85%B8%E4%B8%8E%E9%9B%86%E5%90%88/</link>
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
