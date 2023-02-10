@@ -13,7 +13,7 @@
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/mysql%E5%9F%BA%E7%A1%80/</guid>
-      <description>基础 [TOC] 一：数据库 1.1 MySQL 引擎 存储引擎指表的类型，决定了表在计算机中的存储方式。MySQL 默认存储引擎为 InnoDB，支持事务、原子操作、回滚等等</description>
+      <description>[TOC] 基础 一：数据库 1.1 MySQL 引擎 存储引擎指表的类型，决定了表在计算机中的存储方式。MySQL 默认存储引擎为 InnoDB，支持事务、原子操作、回滚等等</description>
     </item>
     
   </channel>

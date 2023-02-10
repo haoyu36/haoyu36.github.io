@@ -6,14 +6,23 @@
     <description>Recent content on haoyu blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Oct 2022 15:00:55 +0000</lastBuildDate><atom:link href="https://haoyu36.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Jan 2023 15:02:57 +0000</lastBuildDate><atom:link href="https://haoyu36.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python装饰器</title>
+      <link>https://haoyu36.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
+      <pubDate>Mon, 30 Jan 2023 15:02:57 +0000</pubDate>
+      
+      <guid>https://haoyu36.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
+      <description>[TOC] 装饰器 一：概述 是什么： 装饰器本质上是一个 Python 函数，可以让其他函数在不需要做任何代码变动的前提下增加额外的功能 装饰器的参数是被装饰的函数，返回</description>
+    </item>
+    
     <item>
       <title>python代码质量</title>
       <link>https://haoyu36.github.io/post/python%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/</link>
       <pubDate>Wed, 26 Oct 2022 15:00:55 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/python%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/</guid>
-      <description>代码质量 [TOC] 相关文档： 编码质量 概述 Pythonic 就是充分利用 Python 语言特性，写出简洁优美的代码 Python 之禅 import this 是 Python 的一个彩蛋，在交互式解释器中输入就会显示。Pyth</description>
+      <description>[TOC] 代码质量 相关文档： 编码质量 概述 Pythonic 就是充分利用 Python 语言特性，写出简洁优美的代码 Python 之禅 import this 是 Python 的一个彩蛋，在交互式解释器中输入就会显示。Pyth</description>
     </item>
     
     <item>
@@ -31,7 +40,7 @@
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/mysql%E5%9F%BA%E7%A1%80/</guid>
-      <description>基础 [TOC] 一：数据库 1.1 MySQL 引擎 存储引擎指表的类型，决定了表在计算机中的存储方式。MySQL 默认存储引擎为 InnoDB，支持事务、原子操作、回滚等等</description>
+      <description>[TOC] 基础 一：数据库 1.1 MySQL 引擎 存储引擎指表的类型，决定了表在计算机中的存储方式。MySQL 默认存储引擎为 InnoDB，支持事务、原子操作、回滚等等</description>
     </item>
     
     <item>
@@ -40,7 +49,16 @@
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/python%E5%9F%BA%E7%A1%80/</guid>
-      <description>基础 [TOC] 概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby） 一般编</description>
+      <description>[TOC] 基础 一：概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby） 一</description>
+    </item>
+    
+    <item>
+      <title>python垃圾回收</title>
+      <link>https://haoyu36.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>https://haoyu36.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>垃圾回收 Garbage Collection A way for a program to automatically release memory when the object taking up that space is no longer in use 一：回收机制 GC (Garbage Collection) 是一种自动内存管理机制，当对应内存不再需要时，就予以释放。这种内存资</description>
     </item>
     
     <item>
@@ -76,7 +94,7 @@
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/redis%E5%9F%BA%E7%A1%80/</guid>
-      <description>基础 [TOC] 一：基础 1.1 概述 Redis 是一种速度非常快的键值（Key-Value）数据库，数据是存储在内存中的，并通过异步的方式将数据写入磁盘 使用 Redis 只能通过</description>
+      <description>[TOC] 基础 一：基础 1.1 概述 Redis 是一种速度非常快的键值（Key-Value）数据库，数据是存储在内存中的，并通过异步的方式将数据写入磁盘 使用 Redis 只能通过</description>
     </item>
     
     <item>
@@ -94,7 +112,7 @@
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/%E7%BC%96%E7%A0%81/</guid>
-      <description>编码 编码是根据某一字符编码规则，将人类可读的字符串翻译为计算机中存储的原始字节 一：字符 计算机中的所有东西都是字节，磁盘上的文件是一系列字节，</description>
+      <description>[TOC] 编码 编码是根据某一字符编码规则，将人类可读的字符串翻译为计算机中存储的原始字节 一：字符 计算机中的所有东西都是字节，磁盘上的文件是一系列字节</description>
     </item>
     
     <item>
@@ -130,7 +148,7 @@
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1/</guid>
-      <description>分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决 网络层次 [TOC] 为了解决 (兼容)不同设备之间的通信问题，需</description>
+      <description>[TOC] 网络层次 分层是计算机技术最核心的一个思想。计算机科学中的任何问题，都可以通过加上一层逻辑层来解决 为了解决 (兼容)不同设备之间的通信问题，需</description>
     </item>
     
     <item>

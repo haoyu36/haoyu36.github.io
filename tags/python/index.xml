@@ -6,14 +6,23 @@
     <description>Recent content in python on haoyu blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Oct 2022 15:00:55 +0000</lastBuildDate><atom:link href="https://haoyu36.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Jan 2023 15:02:57 +0000</lastBuildDate><atom:link href="https://haoyu36.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python装饰器</title>
+      <link>https://haoyu36.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
+      <pubDate>Mon, 30 Jan 2023 15:02:57 +0000</pubDate>
+      
+      <guid>https://haoyu36.github.io/post/python%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
+      <description>[TOC] 装饰器 一：概述 是什么： 装饰器本质上是一个 Python 函数，可以让其他函数在不需要做任何代码变动的前提下增加额外的功能 装饰器的参数是被装饰的函数，返回</description>
+    </item>
+    
     <item>
       <title>python代码质量</title>
       <link>https://haoyu36.github.io/post/python%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/</link>
       <pubDate>Wed, 26 Oct 2022 15:00:55 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/python%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/</guid>
-      <description>代码质量 [TOC] 相关文档： 编码质量 概述 Pythonic 就是充分利用 Python 语言特性，写出简洁优美的代码 Python 之禅 import this 是 Python 的一个彩蛋，在交互式解释器中输入就会显示。Pyth</description>
+      <description>[TOC] 代码质量 相关文档： 编码质量 概述 Pythonic 就是充分利用 Python 语言特性，写出简洁优美的代码 Python 之禅 import this 是 Python 的一个彩蛋，在交互式解释器中输入就会显示。Pyth</description>
     </item>
     
     <item>
@@ -22,7 +31,16 @@
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/python%E5%9F%BA%E7%A1%80/</guid>
-      <description>基础 [TOC] 概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby） 一般编</description>
+      <description>[TOC] 基础 一：概述 Python 定义 Python 是一种解释型、动态、面向对象的编程语言 解释型 Python 是一门解释型语言，即在运行之前不需要编译（其他解释型语言 PHP 和 Ruby） 一</description>
+    </item>
+    
+    <item>
+      <title>python垃圾回收</title>
+      <link>https://haoyu36.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
+      
+      <guid>https://haoyu36.github.io/post/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>垃圾回收 Garbage Collection A way for a program to automatically release memory when the object taking up that space is no longer in use 一：回收机制 GC (Garbage Collection) 是一种自动内存管理机制，当对应内存不再需要时，就予以释放。这种内存资</description>
     </item>
     
     <item>

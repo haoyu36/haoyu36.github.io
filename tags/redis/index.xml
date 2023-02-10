@@ -13,7 +13,7 @@
       <pubDate>Fri, 01 Oct 2021 15:40:18 +0000</pubDate>
       
       <guid>https://haoyu36.github.io/post/redis%E5%9F%BA%E7%A1%80/</guid>
-      <description>基础 [TOC] 一：基础 1.1 概述 Redis 是一种速度非常快的键值（Key-Value）数据库，数据是存储在内存中的，并通过异步的方式将数据写入磁盘 使用 Redis 只能通过</description>
+      <description>[TOC] 基础 一：基础 1.1 概述 Redis 是一种速度非常快的键值（Key-Value）数据库，数据是存储在内存中的，并通过异步的方式将数据写入磁盘 使用 Redis 只能通过</description>
     </item>
     
   </channel>
